@@ -11314,3 +11314,24 @@ section#contact form#contactForm :-ms-input-placeholder {
   font-size: 0.9rem;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+/* ===== FIX AVATAR CIRCULAR (Advisor / Board) ===== */
+.advisor-photo{
+  width: clamp(72px, 10vw, 110px);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.08);
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.advisor-photo img{
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 50%;
+}
