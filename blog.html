@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NCA GROUP | Blog</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+    <style>
+      :root{
+        --bg1:#0b1220;
+        --bg2:#0a3a4a;
+        --muted: rgba(255,255,255,.72);
+        --muted2: rgba(255,255,255,.55);
+        --border: rgba(255,255,255,.10);
+        --accent:#7dd3fc;
+      }
+      *{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      body{
+        min-height:100vh;
+        background: radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,.18), transparent 60%),
+                    radial-gradient(1200px 700px at 80% 20%, rgba(34,211,238,.12), transparent 55%),
+                    linear-gradient(180deg, var(--bg1), var(--bg2));
+        color:#fff;
+      }
+      a{ color:inherit; }
+
+      .shell{
+        max-width: 1120px;
+        margin: 36px auto;
+        border-radius: 36px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: rgba(10,15,25,.55);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      }
+
+      /* TOPBAR */
+      .topbar{
+        padding: 16px 20px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
+      }
+      .brand-logo img{
+        height: 100px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+      }
+      .nav-pill{
+        display:flex;
+        align-items:center;
+        gap: 6px;
+        padding: 6px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .nav-pill a{
+        text-decoration:none;
+        font-size: 13px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        color: rgba(255,255,255,.78);
+      }
+      .nav-pill a.active,
+      .nav-pill a:hover{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+      .icon-btn{
+        width: 36px; height: 36px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+
+      /* HERO */
+      .hero{ padding: 22px 22px 0 22px; }
+      .hero-card{
+        border-radius: 32px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        position: relative;
+        min-height: 420px;
+        background: #0a0f19;
+      }
+      .hero-card > img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        opacity: .92;
+      }
+      .hero-overlay{
+        position:absolute;
+        inset:0;
+        background:
+          radial-gradient(900px 520px at 18% 18%, rgba(0,0,0,.08), rgba(0,0,0,.86) 70%),
+          linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.55));
+      }
+      .hero-content{
+        position: relative;
+        z-index: 2;
+        padding: 44px 36px;
+        max-width: 900px;
+      }
+      .kicker{
+        font-size: 12px;
+        letter-spacing:.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.75);
+      }
+      .hero-title{
+        font-weight: 800;
+        line-height: 1.02;
+        font-size: clamp(38px, 5.4vw, 62px);
+        margin: 10px 0 0;
+      }
+
+      /* SECTION */
+      .section{ padding: 26px 22px; }
+      .section-card{
+        border-radius: 28px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(0,0,0,.22);
+        padding: 22px;
+      }
+      .h2{
+        font-weight: 800;
+        font-size: 22px;
+        margin: 6px 0 0;
+      }
+      .p-muted{ color: var(--muted); margin:0; }
+
+      /* BLOG LIST */
+      .post-card{
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06);
+        overflow: hidden;
+        height: 100%;
+      }
+      .post-media{
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: rgba(255,255,255,.05);
+        overflow:hidden;
+      }
+      .post-media img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display:block;
+      }
+      .post-body{
+        padding: 16px 16px 18px;
+      }
+      .post-cat{
+        font-size: 12px;
+        letter-spacing:.12em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.70);
+        margin-bottom: 8px;
+      }
+      .post-title{
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 1.15;
+        margin: 0 0 10px;
+      }
+      .post-text{
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 0;
+      }
+      .post-link{
+        display:inline-flex;
+        margin-top: 12px;
+        font-size: 13px;
+        text-decoration: none;
+        color: rgba(255,255,255,.85);
+        border-bottom: 1px solid rgba(255,255,255,.25);
+        padding-bottom: 2px;
+      }
+
+      /* Pagination */
+      .pager{
+        margin-top: 14px;
+        display:flex;
+        gap: 8px;
+        align-items:center;
+        justify-content:center;
+        flex-wrap: wrap;
+      }
+      .page-pill{
+        min-width: 36px;
+        height: 34px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(0,0,0,.20);
+        color: rgba(255,255,255,.82);
+        font-size: 13px;
+        text-decoration:none;
+      }
+      .page-pill.active{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+
+      /* CONTACT BOX (PDF footer block) */
+      .contact-box{
+        border-radius: 22px;
+        border: 1px solid rgba(255,255,255,.12);
+        background:
+          radial-gradient(900px 260px at 15% 0%, rgba(125,211,252,.12), transparent 70%),
+          rgba(0,0,0,.18);
+        padding: 18px;
+        height: 100%;
+      }
+      .contact-box strong{ color:#fff; font-weight:700; }
+      .contact-line{ color: var(--muted); margin: 6px 0 0; }
+
+      /* FOOTER */
+      .footer{
+        padding: 18px 22px 26px;
+        border-top: 1px solid rgba(255,255,255,.10);
+        display:flex;
+        gap: 18px;
+        align-items:flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: var(--muted2);
+        font-size: 13px;
+      }
+      .footer strong{ color:#fff; font-weight:600; }
+      .footer-brand{
+        display:flex;
+        gap: 12px;
+        align-items:flex-start;
+        max-width: 340px;
+      }
+      .footer-brand img{
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 18px rgba(0,0,0,.18));
+      }
+      .footer-tagline{
+        margin: 2px 0 0;
+        color: rgba(255,255,255,.62);
+        line-height: 1.4;
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        [data-aos]{
+          transition: none !important;
+          transform: none !important;
+          opacity: 1 !important;
+        }
+      }
+      @media (max-width: 768px){
+        .hero-content{ padding: 34px 22px; }
+        .topbar{ flex-wrap: wrap; justify-content:center; }
+        .brand-logo{ order: 1; width: 100%; justify-content:center; }
+        .nav-pill{ order: 2; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="shell">
+
+      <!-- NAV -->
+      <header class="topbar" data-aos="fade-down" data-aos-duration="650">
+        <div class="brand-logo">
+          <img src="assets/img/Logo-NCA-sin-fondo.png" alt="" />
+        </div>
+
+        <nav class="nav-pill" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="expertise.html">Expertise</a>
+          <a href="services.html">Services</a>
+          <a href="team.html">Team</a>
+          <a href="clients.html">Clients</a>
+          <a class="active" href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="d-flex gap-2">
+          <a class="icon-btn" href="#" aria-label="LinkedIn"><span style="font-size:12px;opacity:.8;">in</span></a>
+          <a class="icon-btn" href="#" aria-label="X"><span style="font-size:12px;opacity:.8;">X</span></a>
+          <a class="icon-btn" href="#" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
+        </div>
+      </header>
+
+      <!-- HERO (PDF) -->
+      <section class="hero">
+        <div class="hero-card" data-aos="fade-up" data-aos-duration="700">
+          <!-- Placeholder hero image -->
+          <img src="assets/img/6portada-con-efecto.png" alt="Blog hero" />
+          <div class="hero-overlay"></div>
+
+          <div class="hero-content">
+            <div class="kicker">NCA GROUP</div>
+            <h1 class="hero-title">Analysis and expert opinions on your topics of interest</h1>
+          </div>
+        </div>
+      </section>
+
+      <!-- LATEST NEWS (PDF) -->
+      <section class="section">
+        <div class="section-card" data-aos="fade-up" data-aos-duration="650">
+          <div class="h2">Latest News</div>
+          <p class="p-muted mt-1">
+            Stay updated with the latest news by reading our articles written by content writers in the industry.
+          </p>
+
+          <div class="row g-3 mt-3">
+
+            <!-- Post 1 (PDF) -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="0">
+              <article class="post-card">
+                <div class="post-media">
+                  <img src="assets/img/farmer-on-a-tractor-cultivates-a-potato-plantation-2023-11-27-05-20-59-utc.jpg" alt="Post image 1">
+                </div>
+                <div class="post-body">
+                  <div class="post-cat">Sustainability</div>
+                  <h2 class="post-title">
+                    Enseñanza, comercio y salud, para la recuperación económica
+                  </h2>
+                  <p class="post-text">
+                    Tres pilares para que la economía de portoviejo tenga un despliegue: la enseñanza, el comercio y la salud.
+                  </p>
+                  <a class="post-link" href="#">Read article</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Post 2 (PDF) -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="90">
+              <article class="post-card">
+                <div class="post-media">
+                  <img src="assets/img/stock-market-charts-2023-11-27-05-12-01-utc.jpg" alt="Post image 2">
+                </div>
+                <div class="post-body">
+                  <div class="post-cat">Innovation</div>
+                  <h2 class="post-title">
+                    Taking a Globally Orchestrated Approach to Digital Disruption
+                  </h2>
+                  <p class="post-text">
+                    New technologies such as generative AI, quantum computing, and climate technology require unique but complementary managerial muscles.
+                  </p>
+                  <a class="post-link" href="#">Read article</a>
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+          <!-- Pagination (PDF: 1 2 3 4 ...) -->
+          <div class="pager" data-aos="fade-up" data-aos-delay="120">
+            <a class="page-pill active" href="#">1</a>
+            <a class="page-pill" href="#">2</a>
+            <a class="page-pill" href="#">3</a>
+            <a class="page-pill" href="#">4</a>
+            <span style="opacity:.65;">...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT BLOCK (PDF) -->
+      <section class="section pt-0">
+        <div class="row g-3">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-duration="650">
+            <div class="contact-box">
+              <div class="kicker">NCA GROUP</div>
+              <div class="h2">Contact</div>
+
+              <p class="contact-line"><strong>3055 NW 126 Ave</strong><br/>Sunrise, FL 33323</p>
+              <p class="contact-line"><strong>+1(954) 937 5266</strong></p>
+              <p class="contact-line"><strong>fnavia@naviaconsulting.us</strong></p>
+            </div>
+          </div>
+
+          <div class="col-lg-8" data-aos="fade-up" data-aos-duration="650" data-aos-delay="80">
+            <div class="section-card">
+              <div class="kicker">Note</div>
+              <p class="p-muted">
+                This page displays the latest news layout and article highlights, consistent with the provided design.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" data-aos="fade-up" data-aos-duration="650">
+        <div class="footer-brand">
+          <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo in footer" />
+          <div>
+            <strong>NCA GROUP</strong>
+            <div class="footer-tagline">Analysis and expert opinions on your topics of interest</div>
+          </div>
+        </div>
+
+        <div>
+          <strong>Office</strong><br/>
+          3055 NW 126 Ave, Sunrise, FL 33323
+        </div>
+
+        <div>
+          <strong>Contact</strong><br/>
+          +1(954) 937 5266<br/>
+          fnavia@naviaconsulting.us
+        </div>
+
+        <div>
+          <strong>Links</strong><br/>
+          <a href="clients.html" class="text-decoration-none">Clients</a> ·
+          <a href="contact.html" class="text-decoration-none">Contact</a>
+        </div>
+      </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration:650, easing:"ease-out", once:false, offset:80 });
+    </script>
+  </body>
+</html>

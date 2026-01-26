@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NCA GROUP | Expertise</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+    <style>
+      :root{
+        --bg1:#0b1220;
+        --bg2:#0a3a4a;
+        --muted: rgba(255,255,255,.72);
+        --muted2: rgba(255,255,255,.55);
+        --border: rgba(255,255,255,.10);
+        --accent:#7dd3fc;
+      }
+      *{ font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+      body{
+        min-height:100vh;
+        background: radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,.18), transparent 60%),
+                    radial-gradient(1200px 700px at 80% 20%, rgba(34,211,238,.12), transparent 55%),
+                    linear-gradient(180deg, var(--bg1), var(--bg2));
+        color:#fff;
+      }
+      a{ color:inherit; }
+
+      .shell{
+        max-width: 1120px;
+        margin: 36px auto;
+        border-radius: 36px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: rgba(10,15,25,.55);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      }
+
+      /* TOPBAR */
+      .topbar{
+        padding: 16px 20px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
+      }
+      .brand-logo img{
+        height: 100px;
+        object-fit: contain;
+      }
+      .nav-pill{
+        display:flex;
+        gap:6px;
+        padding:6px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .nav-pill a{
+        text-decoration:none;
+        font-size:13px;
+        padding:8px 12px;
+        border-radius:999px;
+        color: rgba(255,255,255,.78);
+      }
+      .nav-pill a.active,
+      .nav-pill a:hover{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+
+      /* HERO */
+      .hero{
+        padding:22px;
+      }
+      .hero-card{
+        border-radius:32px;
+        border:1px solid var(--border);
+        overflow:hidden;
+        position:relative;
+        min-height:420px;
+      }
+      .hero-img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+      }
+      .hero-overlay{
+        position:absolute;
+        inset:0;
+        background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.75));
+      }
+      .hero-content{
+        position:relative;
+        z-index:2;
+        padding:48px;
+        max-width:700px;
+      }
+      .hero-title{
+        font-size: clamp(40px, 6vw, 60px);
+        font-weight:800;
+        line-height:1;
+      }
+      .hero-sub{
+        margin-top:14px;
+        color: var(--muted);
+        font-size:15px;
+        line-height:1.6;
+      }
+
+      /* SECTOR BLOCKS */
+      .section{
+        padding: 26px 22px;
+      }
+      .sector{
+        border-radius:28px;
+        overflow:hidden;
+        position:relative;
+        border:1px solid var(--border);
+        min-height:260px;
+        margin-bottom:18px;
+      }
+      .sector img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+      }
+      .sector-overlay{
+        position:absolute;
+        inset:0;
+        background: linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.30));
+      }
+      .sector-content{
+        position:relative;
+        z-index:2;
+        padding:28px 32px;
+        max-width:760px;
+      }
+      .sector h3{
+        font-size:22px;
+        font-weight:800;
+        margin-bottom:10px;
+      }
+      .sector p{
+        color: var(--muted);
+        font-size:14px;
+        line-height:1.55;
+        margin:0;
+      }
+
+      /* FOOTER */
+      .footer{
+        padding:18px 22px 26px;
+        border-top:1px solid rgba(255,255,255,.10);
+        display:flex;
+        flex-wrap:wrap;
+        gap:18px;
+        justify-content:space-between;
+        font-size:13px;
+        color:var(--muted2);
+      }
+      .footer-brand{
+        display:flex;
+        gap:12px;
+        max-width:340px;
+      }
+      .footer-brand img{
+        height:40px;
+        object-fit:contain;
+      }
+      .footer strong{ color:#fff; }
+
+      @media(max-width:768px){
+        .hero-content{ padding:32px 24px; }
+        .sector-content{ padding:24px; }
+        .topbar{ flex-wrap:wrap; justify-content:center; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="shell">
+
+      <!-- NAV -->
+      <header class="topbar" data-aos="fade-down">
+        <div class="brand-logo">
+          <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo">
+        </div>
+        <nav class="nav-pill">
+          <a href="index.html">Home</a>
+          <a class="active" href="expertise.html">Expertise</a>
+          <a href="services.html">Services</a>
+          <a href="team.html">Team</a>
+          <a href="clients.html">Clients</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-card" data-aos="fade-up">
+          <img class="hero-img" src="assets/img/Portada-con-efecto-01.png" alt="Expertise">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h1 class="hero-title">Decades of Experience<br/>Across Diverse Industries</h1>
+            <p class="hero-sub">
+              We serve companies, sectors, and government entities in the construction of new business models,
+              innovation for competitive improvement, resource articulation, and national and international commercialization.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTORS -->
+      <section class="section">
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/farmer-on-a-tractor-cultivates-a-potato-plantation-2023-11-27-05-20-59-utc.jpg" alt="Agroindustrial sector">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Agroindustrial Sector</h3>
+            <p>
+              Disruptive innovation and business diversification, oriented toward digital communication
+              and transformation for the sustainability of services.
+            </p>
+          </div>
+        </div>
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/fish-factory-worker-2023-11-27-05-36-07-utc.jpg" alt="Fishing sector">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Fishing</h3>
+            <p>
+              Strategic innovation focused on the sustainability of fisheries and species in the Eastern Pacific,
+              market development for new products, and articulation of key resources for operations and trade.
+            </p>
+          </div>
+        </div>
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/basket-with-groceries-in-the-supermarket-2023-11-27-05-09-49-utc.jpg" alt="Food services">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Food Services and Mass Consumption</h3>
+            <p>
+              Strategic planning, market research for growth, financing restructuring,
+              and data management for organizational alignment with change.
+            </p>
+          </div>
+        </div>
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/welder-at-work-in-an-industrial-setting-creating-2024-07-08-20-08-44-utc.jpg" alt="Industrial sector">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Industrial Sector</h3>
+            <p>
+              Technology innovation, process reengineering, data management and analysis
+              to support innovation and organizational change.
+            </p>
+          </div>
+        </div>
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/investment-stockbroker-stock-trading-2023-11-27-05-32-16-utc.jpg" alt="Financial investment">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Financial Investment, Financing and Securities Markets</h3>
+            <p>
+              Company valuation, mergers and acquisitions, securitization,
+              and articulation of working capital financing with national and international sources.
+            </p>
+          </div>
+        </div>
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/business-communication-company-entrepreneur-concep-2023-11-27-05-15-09-utc.jpg" alt="Mass communication services">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Mass Communication Services</h3>
+            <p>
+              Diagnosis, transformation plans, data analysis, algorithm development,
+              interface design, and strategic alliance models for competitive improvement.
+            </p>
+          </div>
+        </div>
+
+        <div class="sector" data-aos="fade-up">
+          <img src="assets/img/business-partners-team-with-hands-together-peopl-2023-11-27-05-02-25-utc.jpg" alt="Public services">
+          <div class="sector-overlay"></div>
+          <div class="sector-content">
+            <h3>Public Services</h3>
+            <p>
+              Solutions for technology innovation, process reengineering,
+              data management, and analytical alignment for institutional transformation.
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer" data-aos="fade-up">
+        <div class="footer-brand">
+          <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP footer logo">
+          <div>
+            <strong>NCA GROUP</strong>
+            <div>Competitive Strategy, Sustainable Growth, and International Trade.</div>
+          </div>
+        </div>
+
+        <div>
+          <strong>Office</strong><br/>
+          3055 NW 126 Ave, Sunrise, FL 33323
+        </div>
+
+        <div>
+          <strong>Contact</strong><br/>
+          +1 (954) 937 5266<br/>
+          fnavia@naviaconsulting.us
+        </div>
+      </footer>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration:650, easing:"ease-out", once:false, offset:80 });
+    </script>
+  </body>
+</html>
