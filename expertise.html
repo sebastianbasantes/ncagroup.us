@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NCA GROUP | Expertise</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/54d5aee5-4ee0-4563-89ad-f7b02073e2c0.jfif" />
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -54,17 +55,26 @@
         justify-content:space-between;
         gap: 12px;
       }
+      .brand-logo{
+        display:flex;
+        align-items:center;
+        min-width:170px;
+      }
       .brand-logo img{
         height: 100px;
         object-fit: contain;
       }
       .nav-pill{
         display:flex;
+        align-items:center;
+        justify-content:center;
         gap:6px;
         padding:6px;
         border-radius:999px;
         border:1px solid var(--border);
         background: rgba(0,0,0,.25);
+        flex:1 1 auto;
+        min-width:0;
       }
       .nav-pill a{
         text-decoration:none;
@@ -72,11 +82,46 @@
         padding:8px 12px;
         border-radius:999px;
         color: rgba(255,255,255,.78);
+        white-space:nowrap;
       }
       .nav-pill a.active,
       .nav-pill a:hover{
         background: rgba(255,255,255,.10);
         color:#fff;
+      }
+      .topbar-actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap:8px;
+        flex-wrap:wrap;
+      }
+      .lang-switch{
+        display:flex;
+        align-items:center;
+        gap:4px;
+        padding:4px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .lang-btn{
+        border:0;
+        background:transparent;
+        color: rgba(255,255,255,.74);
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.04em;
+      }
+      .lang-btn.active{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+      .lang-btn:focus-visible{
+        outline:2px solid rgba(125,211,252,.45);
+        outline-offset:2px;
       }
 
       /* HERO */
@@ -188,6 +233,25 @@
         .hero-content{ padding:32px 24px; }
         .sector-content{ padding:24px; }
         .topbar{ flex-wrap:wrap; justify-content:center; }
+        .brand-logo{ order:1; width:100%; justify-content:center; }
+        .nav-pill{
+          order:2;
+          width:100%;
+          max-width:100%;
+          flex-wrap:wrap;
+          gap:8px 6px;
+          border-radius:24px;
+          padding:10px;
+        }
+        .nav-pill a{
+          font-size:12px;
+          padding:7px 10px;
+        }
+        .topbar-actions{
+          order:3;
+          width:100%;
+          justify-content:center;
+        }
       }
     </style>
   </head>
@@ -200,15 +264,21 @@
         <div class="brand-logo">
           <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo">
         </div>
-        <nav class="nav-pill">
-          <a href="index.html">Home</a>
-          <a class="active" href="expertise.html">Expertise</a>
-          <a href="services.html">Services</a>
-          <a href="team.html">Team</a>
-          <a href="clients.html">Clients</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+        <nav class="nav-pill" aria-label="Primary">
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a class="active" href="expertise.html" data-i18n="nav.expertise">Expertise</a>
+          <a href="services.html" data-i18n="nav.services">Services</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="clients.html" data-i18n="nav.clients">Clients</a>
+          <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </nav>
+        <div class="topbar-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn active" type="button" data-lang-toggle="en">EN</button>
+            <button class="lang-btn" type="button" data-lang-toggle="es">ES</button>
+          </div>
+        </div>
       </header>
 
       <!-- HERO -->
@@ -217,8 +287,8 @@
           <img class="hero-img" src="assets/img/Portada-con-efecto-01.png" alt="Expertise">
           <div class="hero-overlay"></div>
           <div class="hero-content">
-            <h1 class="hero-title">Decades of Experience<br/>Across Diverse Industries</h1>
-            <p class="hero-sub">
+            <h1 class="hero-title" data-i18n-html="hero.title">Decades of Experience<br/>Across Diverse Industries</h1>
+            <p class="hero-sub" data-i18n="hero.sub">
               We serve companies, sectors, and government entities in the construction of new business models,
               innovation for competitive improvement, resource articulation, and national and international commercialization.
             </p>
@@ -233,8 +303,8 @@
           <img src="assets/img/farmer-on-a-tractor-cultivates-a-potato-plantation-2023-11-27-05-20-59-utc.jpg" alt="Agroindustrial sector">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Agroindustrial Sector</h3>
-            <p>
+            <h3 data-i18n="sector.agro.title">Agroindustrial Sector</h3>
+            <p data-i18n="sector.agro.body">
               Disruptive innovation and business diversification, oriented toward digital communication
               and transformation for the sustainability of services.
             </p>
@@ -245,8 +315,8 @@
           <img src="assets/img/fish-factory-worker-2023-11-27-05-36-07-utc.jpg" alt="Fishing sector">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Fishing</h3>
-            <p>
+            <h3 data-i18n="sector.fishing.title">Fishing</h3>
+            <p data-i18n="sector.fishing.body">
               Strategic innovation focused on the sustainability of fisheries and species in the Eastern Pacific,
               market development for new products, and articulation of key resources for operations and trade.
             </p>
@@ -257,8 +327,8 @@
           <img src="assets/img/basket-with-groceries-in-the-supermarket-2023-11-27-05-09-49-utc.jpg" alt="Food services">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Food Services and Mass Consumption</h3>
-            <p>
+            <h3 data-i18n="sector.food.title">Food Services and Mass Consumption</h3>
+            <p data-i18n="sector.food.body">
               Strategic planning, market research for growth, financing restructuring,
               and data management for organizational alignment with change.
             </p>
@@ -269,8 +339,8 @@
           <img src="assets/img/welder-at-work-in-an-industrial-setting-creating-2024-07-08-20-08-44-utc.jpg" alt="Industrial sector">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Industrial Sector</h3>
-            <p>
+            <h3 data-i18n="sector.industrial.title">Industrial Sector</h3>
+            <p data-i18n="sector.industrial.body">
               Technology innovation, process reengineering, data management and analysis
               to support innovation and organizational change.
             </p>
@@ -281,8 +351,8 @@
           <img src="assets/img/investment-stockbroker-stock-trading-2023-11-27-05-32-16-utc.jpg" alt="Financial investment">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Financial Investment, Financing and Securities Markets</h3>
-            <p>
+            <h3 data-i18n="sector.financial.title">Financial Investment, Financing and Securities Markets</h3>
+            <p data-i18n="sector.financial.body">
               Company valuation, mergers and acquisitions, securitization,
               and articulation of working capital financing with national and international sources.
             </p>
@@ -293,8 +363,8 @@
           <img src="assets/img/business-communication-company-entrepreneur-concep-2023-11-27-05-15-09-utc.jpg" alt="Mass communication services">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Mass Communication Services</h3>
-            <p>
+            <h3 data-i18n="sector.communication.title">Mass Communication Services</h3>
+            <p data-i18n="sector.communication.body">
               Diagnosis, transformation plans, data analysis, algorithm development,
               interface design, and strategic alliance models for competitive improvement.
             </p>
@@ -305,8 +375,8 @@
           <img src="assets/img/business-partners-team-with-hands-together-peopl-2023-11-27-05-02-25-utc.jpg" alt="Public services">
           <div class="sector-overlay"></div>
           <div class="sector-content">
-            <h3>Public Services</h3>
-            <p>
+            <h3 data-i18n="sector.public.title">Public Services</h3>
+            <p data-i18n="sector.public.body">
               Solutions for technology innovation, process reengineering,
               data management, and analytical alignment for institutional transformation.
             </p>
@@ -321,17 +391,17 @@
           <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP footer logo">
           <div>
             <strong>NCA GROUP</strong>
-            <div>Competitive Strategy, Sustainable Growth, and International Trade.</div>
+            <div data-i18n="footer.tagline">Competitive Strategy, Sustainable Growth, and International Trade.</div>
           </div>
         </div>
 
         <div>
-          <strong>Office</strong><br/>
+          <strong data-i18n="footer.office">Office</strong><br/>
           3055 NW 126 Ave, Sunrise, FL 33323
         </div>
 
         <div>
-          <strong>Contact</strong><br/>
+          <strong data-i18n="footer.contact">Contact</strong><br/>
           +1 (954) 937 5266<br/>
           fnavia@naviaconsulting.us
         </div>
@@ -342,6 +412,119 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+      const translations = {
+        en: {
+          pageTitle: "NCA GROUP | Expertise",
+          "nav.home": "Home",
+          "nav.expertise": "Expertise",
+          "nav.services": "Services",
+          "nav.team": "Team",
+          "nav.clients": "Clients",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.title": "Decades of Experience<br/>Across Diverse Industries",
+          "hero.sub": "We serve companies, sectors, and government entities in the construction of new business models, innovation for competitive improvement, resource articulation, and national and international commercialization.",
+          "sector.agro.title": "Agroindustrial Sector",
+          "sector.agro.body": "Disruptive innovation and business diversification, oriented toward digital communication and transformation for the sustainability of services.",
+          "sector.fishing.title": "Fishing",
+          "sector.fishing.body": "Strategic innovation focused on the sustainability of fisheries and species in the Eastern Pacific, market development for new products, and articulation of key resources for operations and trade.",
+          "sector.food.title": "Food Services and Mass Consumption",
+          "sector.food.body": "Strategic planning, market research for growth, financing restructuring, and data management for organizational alignment with change.",
+          "sector.industrial.title": "Industrial Sector",
+          "sector.industrial.body": "Technology innovation, process reengineering, data management and analysis to support innovation and organizational change.",
+          "sector.financial.title": "Financial Investment, Financing and Securities Markets",
+          "sector.financial.body": "Company valuation, mergers and acquisitions, securitization, and articulation of working capital financing with national and international sources.",
+          "sector.communication.title": "Mass Communication Services",
+          "sector.communication.body": "Diagnosis, transformation plans, data analysis, algorithm development, interface design, and strategic alliance models for competitive improvement.",
+          "sector.public.title": "Public Services",
+          "sector.public.body": "Solutions for technology innovation, process reengineering, data management, and analytical alignment for institutional transformation.",
+          "footer.tagline": "Competitive Strategy, Sustainable Growth, and International Trade.",
+          "footer.office": "Office",
+          "footer.contact": "Contact"
+        },
+        es: {
+          pageTitle: "NCA GROUP | Experticia",
+          "nav.home": "Inicio",
+          "nav.expertise": "Experticia",
+          "nav.services": "Servicios",
+          "nav.team": "Equipo",
+          "nav.clients": "Clientes",
+          "nav.blog": "Blog",
+          "nav.contact": "Contacto",
+          "hero.title": "Decadas de experiencia<br/>en diversas industrias",
+          "hero.sub": "Atendemos empresas, sectores y entidades gubernamentales en la construccion de nuevos modelos de negocio, innovacion para la mejora competitiva, articulacion de recursos y comercializacion nacional e internacional.",
+          "sector.agro.title": "Sector agroindustrial",
+          "sector.agro.body": "Innovacion disruptiva y diversificacion de negocios, orientadas a la comunicacion digital y a la transformacion para la sostenibilidad de los servicios.",
+          "sector.fishing.title": "Pesca",
+          "sector.fishing.body": "Innovacion estrategica enfocada en la sostenibilidad de las pesquerias y especies del Pacifico Oriental, desarrollo de mercados para nuevos productos y articulacion de recursos clave para la operacion y el comercio.",
+          "sector.food.title": "Servicios de alimentos y consumo masivo",
+          "sector.food.body": "Planificacion estrategica, investigacion de mercados para el crecimiento, reestructuracion financiera y gestion de datos para la alineacion organizacional con el cambio.",
+          "sector.industrial.title": "Sector industrial",
+          "sector.industrial.body": "Innovacion tecnologica, reingenieria de procesos, gestion y analisis de datos para apoyar la innovacion y el cambio organizacional.",
+          "sector.financial.title": "Inversion financiera, financiamiento y mercados de valores",
+          "sector.financial.body": "Valoracion de empresas, fusiones y adquisiciones, titulizacion y articulacion de financiamiento de capital de trabajo con fuentes nacionales e internacionales.",
+          "sector.communication.title": "Servicios de comunicacion masiva",
+          "sector.communication.body": "Diagnostico, planes de transformacion, analisis de datos, desarrollo de algoritmos, diseno de interfaces y modelos de alianzas estrategicas para la mejora competitiva.",
+          "sector.public.title": "Servicios publicos",
+          "sector.public.body": "Soluciones para la innovacion tecnologica, reingenieria de procesos, gestion de datos y alineacion analitica para la transformacion institucional.",
+          "footer.tagline": "Estrategia competitiva, crecimiento sostenible y comercio internacional.",
+          "footer.office": "Oficina",
+          "footer.contact": "Contacto"
+        }
+      };
+
+      const languageButtons = document.querySelectorAll("[data-lang-toggle]");
+
+      function applyLanguage(lang){
+        const dictionary = translations[lang] || translations.en;
+
+        document.documentElement.lang = lang;
+        document.title = dictionary.pageTitle;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (dictionary[key]) {
+            element.textContent = dictionary[key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+          const key = element.dataset.i18nHtml;
+          if (dictionary[key]) {
+            element.innerHTML = dictionary[key];
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.langToggle === lang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        try{
+          localStorage.setItem("nca-group-home-lang", lang);
+        }catch (error){
+          // Ignore storage restrictions.
+        }
+      }
+
+      const savedLanguage = (() => {
+        try{
+          const storedLanguage = localStorage.getItem("nca-group-home-lang");
+          return translations[storedLanguage] ? storedLanguage : "en";
+        }catch (error){
+          return "en";
+        }
+      })();
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.langToggle);
+        });
+      });
+
+      applyLanguage(savedLanguage);
+
       AOS.init({ duration:650, easing:"ease-out", once:false, offset:80 });
     </script>
   </body>

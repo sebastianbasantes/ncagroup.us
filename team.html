@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NCA GROUP | Team</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/54d5aee5-4ee0-4563-89ad-f7b02073e2c0.jfif" />
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -54,6 +55,11 @@
         justify-content:space-between;
         gap: 12px;
       }
+      .brand-logo{
+        display:flex;
+        align-items:center;
+        min-width:170px;
+      }
       .brand-logo img{
         height: 100px;
         width: auto;
@@ -63,11 +69,14 @@
       .nav-pill{
         display:flex;
         align-items:center;
+        justify-content:center;
         gap: 6px;
         padding: 6px;
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        flex:1 1 auto;
+        min-width:0;
       }
       .nav-pill a{
         text-decoration:none;
@@ -75,11 +84,46 @@
         padding: 8px 12px;
         border-radius: 999px;
         color: rgba(255,255,255,.78);
+        white-space:nowrap;
       }
       .nav-pill a.active,
       .nav-pill a:hover{
         background: rgba(255,255,255,.10);
         color:#fff;
+      }
+      .topbar-actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap:8px;
+        flex-wrap:wrap;
+      }
+      .lang-switch{
+        display:flex;
+        align-items:center;
+        gap:4px;
+        padding:4px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .lang-btn{
+        border:0;
+        background:transparent;
+        color: rgba(255,255,255,.74);
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.04em;
+      }
+      .lang-btn.active{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+      .lang-btn:focus-visible{
+        outline:2px solid rgba(125,211,252,.45);
+        outline-offset:2px;
       }
       .icon-btn{
         width: 36px; height: 36px;
@@ -89,6 +133,12 @@
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        text-decoration:none;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      }
+      .icon-btn:hover{
+        background: rgba(255,255,255,.10);
+        color:#fff;
       }
 
       /* HERO */
@@ -268,7 +318,24 @@
         .hero-content{ padding: 34px 22px; }
         .topbar{ flex-wrap: wrap; justify-content:center; }
         .brand-logo{ order: 1; width: 100%; justify-content:center; }
-        .nav-pill{ order: 2; }
+        .nav-pill{
+          order: 2;
+          width:100%;
+          max-width:100%;
+          flex-wrap:wrap;
+          gap:8px 6px;
+          border-radius:24px;
+          padding:10px;
+        }
+        .nav-pill a{
+          font-size:12px;
+          padding:7px 10px;
+        }
+        .topbar-actions{
+          order:3;
+          width:100%;
+          justify-content:center;
+        }
       }
     </style>
   </head>
@@ -283,19 +350,23 @@
         </div>
 
         <nav class="nav-pill" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="expertise.html">Expertise</a>
-          <a href="services.html">Services</a>
-          <a class="active" href="team.html">Team</a>
-          <a href="clients.html">Clients</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="expertise.html" data-i18n="nav.expertise">Expertise</a>
+          <a href="services.html" data-i18n="nav.services">Services</a>
+          <a class="active" href="team.html" data-i18n="nav.team">Team</a>
+          <a href="clients.html" data-i18n="nav.clients">Clients</a>
+          <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </nav>
 
-        <div class="d-flex gap-2">
-          <a class="icon-btn" href="#" aria-label="LinkedIn"><span style="font-size:12px;opacity:.8;">in</span></a>
-          <a class="icon-btn" href="#" aria-label="X"><span style="font-size:12px;opacity:.8;">X</span></a>
-          <a class="icon-btn" href="#" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
+        <div class="topbar-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn active" type="button" data-lang-toggle="en">EN</button>
+            <button class="lang-btn" type="button" data-lang-toggle="es">ES</button>
+          </div>
+          <a class="icon-btn" href="https://www.linkedin.com/in/jos%C3%A9-fernando-navia-113b2a1/" aria-label="LinkedIn" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">in</span></a>
+          <a class="icon-btn" href="http://x.com/FNavia" aria-label="X" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">X</span></a>
+          <a class="icon-btn" href="mailto:josefernandonavia@gmail.com" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
         </div>
       </header>
 
@@ -308,10 +379,10 @@
 
           <div class="hero-content">
             <div class="kicker">NCA GROUP</div>
-            <h1 class="hero-title">
+            <h1 class="hero-title" data-i18n="hero.title">
               A Network of Leaders in Their Fields, Collaborating to Deliver Exceptional Service and Achieve Your Strategic Objectives.
             </h1>
-            <p class="hero-sub">
+            <p class="hero-sub" data-i18n="hero.sub">
               <!-- El PDF no añade un párrafo adicional; mantenemos el headline como contenido principal. -->
             </p>
           </div>
@@ -324,8 +395,8 @@
           <div class="row g-3">
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="0">
               <div class="mv-card">
-                <h3>Mission:</h3>
-                <p>
+                <h3 data-i18n="mission.title">Mission:</h3>
+                <p data-i18n="mission.body">
                   Empowering sustainable growth and internationalization by providing strategic advice, expert financial guidance, and access to a strong resource network.
                 </p>
               </div>
@@ -333,8 +404,8 @@
 
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="90">
               <div class="mv-card">
-                <h3>Vision:</h3>
-                <p>
+                <h3 data-i18n="vision.title">Vision:</h3>
+                <p data-i18n="vision.body">
                   To be the key ally for innovative companies, fostering competitive advantage, resource access, and high-value relationships.
                 </p>
               </div>
@@ -342,13 +413,13 @@
 
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="180">
               <div class="mv-card">
-                <h3>Values:</h3>
+                <h3 data-i18n="values.title">Values:</h3>
                 <ul class="values-list">
-                  <li><strong>Truth-seeking:</strong> delivering accurate and insightful guidance.</li>
-                  <li><strong>Expertise:</strong> Providing exceptional solutions with deep financial knowledge.</li>
-                  <li><strong>Client focud:</strong> Building strong relationships and understanding client needs.</li>
-                  <li><strong>Integrity:</strong> Acting with honesty and transparency.</li>
-                  <li><strong>Collaboration:</strong> Driving success through partnerships</li>
+                  <li data-i18n-html="values.item1"><strong>Truth-seeking:</strong> delivering accurate and insightful guidance.</li>
+                  <li data-i18n-html="values.item2"><strong>Expertise:</strong> Providing exceptional solutions with deep financial knowledge.</li>
+                  <li data-i18n-html="values.item3"><strong>Client focus:</strong> Building strong relationships and understanding client needs.</li>
+                  <li data-i18n-html="values.item4"><strong>Integrity:</strong> Acting with honesty and transparency.</li>
+                  <li data-i18n-html="values.item5"><strong>Collaboration:</strong> Driving success through partnerships.</li>
                 </ul>
               </div>
             </div>
@@ -359,8 +430,8 @@
       <!-- Team members (nombres del PDF) -->
       <section class="section pt-0">
         <div class="team-wrap" data-aos="fade-up" data-aos-duration="650">
-          <div class="kicker">Team</div>
-          <div class="h2">Leadership network</div>
+          <div class="kicker" data-i18n="team.kicker">Team</div>
+          <div class="h2" data-i18n="team.title">Leadership network</div>
 
           <div class="row g-3 mt-2">
             <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
@@ -381,12 +452,39 @@
               </div>
             </div>
 
+            <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="320">
+              <div class="member-card">
+                <div class="avatar">
+                  <img src="assets/img/persona4.png" alt="Benjamin Feliz S.">
+                </div>
+                <p class="member-name">Benjamin Feliz S.</p>
+              </div>
+            </div>
+
             <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
               <div class="member-card">
                 <div class="avatar">
-                  <img src="assets/img/persona4.png" alt="Benjamín Feliz S.">
+                  <img src="assets/img/persona2.jpg" alt="Carlos Andrade Moreno">
                 </div>
-                <p class="member-name">Benjamín Feliz S.</p>
+                <p class="member-name">Carlos Andrade<br/>Moreno</p>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+              <div class="member-card">
+                <div class="avatar">
+                  <img src="assets/img/persona6.png" alt="Dario Calaorrano">
+                </div>
+                <p class="member-name">Dario<br/>Calaorrano</p>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay="320">
+              <div class="member-card">
+                <div class="avatar">
+                  <img src="assets/img/persona5.jpg" alt="Alejo Pozo">
+                </div>
+                <p class="member-name">Alejo<br/>Pozo</p>
               </div>
             </div>
             
@@ -401,27 +499,27 @@
           <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo in footer" />
           <div>
             <strong>NCA GROUP</strong>
-            <div class="footer-tagline">A Network of Leaders in Their Fields.</div>
+            <div class="footer-tagline" data-i18n="footer.tagline">A Network of Leaders in Their Fields.</div>
           </div>
         </div>
 
         <div>
-          <strong>Office</strong><br/>
+          <strong data-i18n="footer.office">Office</strong><br/>
           3055 NW 126 Ave<br/>
           Sunrise, FL 33323
         </div>
 
         <div>
-          <strong>Contact</strong><br/>
+          <strong data-i18n="footer.contact">Contact</strong><br/>
           +1(954) 937 5266<br/>
           fnavia@naviaconsulting.us
         </div>
 
         <div>
-          <strong>Links</strong><br/>
-          <a href="services.html" class="text-decoration-none">Services</a> ·
-          <a href="blog.html" class="text-decoration-none">Blog</a> ·
-          <a href="contact.html" class="text-decoration-none">Contact</a>
+          <strong data-i18n="footer.links">Links</strong><br/>
+          <a href="services.html" class="text-decoration-none" data-i18n="footer.services">Services</a> &middot;
+          <a href="blog.html" class="text-decoration-none" data-i18n="footer.blog">Blog</a> &middot;
+          <a href="contact.html" class="text-decoration-none" data-i18n="footer.contactLink">Contact</a>
         </div>
       </footer>
 
@@ -430,6 +528,123 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+      const translations = {
+        en: {
+          pageTitle: "NCA GROUP | Team",
+          "nav.home": "Home",
+          "nav.expertise": "Expertise",
+          "nav.services": "Services",
+          "nav.team": "Team",
+          "nav.clients": "Clients",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.title": "A Network of Leaders in Their Fields, Collaborating to Deliver Exceptional Service and Achieve Your Strategic Objectives.",
+          "hero.sub": "",
+          "mission.title": "Mission:",
+          "mission.body": "Empowering sustainable growth and internationalization by providing strategic advice, expert financial guidance, and access to a strong resource network.",
+          "vision.title": "Vision:",
+          "vision.body": "To be the key ally for innovative companies, fostering competitive advantage, resource access, and high-value relationships.",
+          "values.title": "Values:",
+          "values.item1": "<strong>Truth-seeking:</strong> delivering accurate and insightful guidance.",
+          "values.item2": "<strong>Expertise:</strong> Providing exceptional solutions with deep financial knowledge.",
+          "values.item3": "<strong>Client focus:</strong> Building strong relationships and understanding client needs.",
+          "values.item4": "<strong>Integrity:</strong> Acting with honesty and transparency.",
+          "values.item5": "<strong>Collaboration:</strong> Driving success through partnerships.",
+          "team.kicker": "Team",
+          "team.title": "Leadership network",
+          "footer.tagline": "A Network of Leaders in Their Fields.",
+          "footer.office": "Office",
+          "footer.contact": "Contact",
+          "footer.links": "Links",
+          "footer.services": "Services",
+          "footer.blog": "Blog",
+          "footer.contactLink": "Contact"
+        },
+        es: {
+          pageTitle: "NCA GROUP | Equipo",
+          "nav.home": "Inicio",
+          "nav.expertise": "Experticia",
+          "nav.services": "Servicios",
+          "nav.team": "Equipo",
+          "nav.clients": "Clientes",
+          "nav.blog": "Blog",
+          "nav.contact": "Contacto",
+          "hero.title": "Una red de lideres en sus campos, colaborando para brindar un servicio excepcional y alcanzar sus objetivos estrategicos.",
+          "hero.sub": "",
+          "mission.title": "Mision:",
+          "mission.body": "Impulsar el crecimiento sostenible y la internacionalizacion mediante asesoria estrategica, orientacion financiera experta y acceso a una solida red de recursos.",
+          "vision.title": "Vision:",
+          "vision.body": "Ser el aliado clave para empresas innovadoras, fomentando ventaja competitiva, acceso a recursos y relaciones de alto valor.",
+          "values.title": "Valores:",
+          "values.item1": "<strong>Busqueda de la verdad:</strong> brindar orientacion precisa y valiosa.",
+          "values.item2": "<strong>Experticia:</strong> ofrecer soluciones excepcionales con profundo conocimiento financiero.",
+          "values.item3": "<strong>Enfoque en el cliente:</strong> construir relaciones solidas y comprender las necesidades del cliente.",
+          "values.item4": "<strong>Integridad:</strong> actuar con honestidad y transparencia.",
+          "values.item5": "<strong>Colaboracion:</strong> impulsar el exito mediante alianzas.",
+          "team.kicker": "Equipo",
+          "team.title": "Red de liderazgo",
+          "footer.tagline": "Una red de lideres en sus campos.",
+          "footer.office": "Oficina",
+          "footer.contact": "Contacto",
+          "footer.links": "Enlaces",
+          "footer.services": "Servicios",
+          "footer.blog": "Blog",
+          "footer.contactLink": "Contacto"
+        }
+      };
+
+      const languageButtons = document.querySelectorAll("[data-lang-toggle]");
+
+      function applyLanguage(lang){
+        const dictionary = translations[lang] || translations.en;
+
+        document.documentElement.lang = lang;
+        document.title = dictionary.pageTitle;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (dictionary[key] !== undefined) {
+            element.textContent = dictionary[key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+          const key = element.dataset.i18nHtml;
+          if (dictionary[key] !== undefined) {
+            element.innerHTML = dictionary[key];
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.langToggle === lang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        try{
+          localStorage.setItem("nca-group-home-lang", lang);
+        }catch (error){
+          // Ignore storage restrictions.
+        }
+      }
+
+      const savedLanguage = (() => {
+        try{
+          const storedLanguage = localStorage.getItem("nca-group-home-lang");
+          return translations[storedLanguage] ? storedLanguage : "en";
+        }catch (error){
+          return "en";
+        }
+      })();
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.langToggle);
+        });
+      });
+
+      applyLanguage(savedLanguage);
+
       AOS.init({ duration:650, easing:"ease-out", once:false, offset:80 });
     </script>
   </body>

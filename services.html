@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NCA GROUP | Services</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/54d5aee5-4ee0-4563-89ad-f7b02073e2c0.jfif" />
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -54,6 +55,11 @@
         justify-content:space-between;
         gap: 12px;
       }
+      .brand-logo{
+        display:flex;
+        align-items:center;
+        min-width:170px;
+      }
       .brand-logo img{
         height: 100px;
         width: auto;
@@ -63,11 +69,14 @@
       .nav-pill{
         display:flex;
         align-items:center;
+        justify-content:center;
         gap: 6px;
         padding: 6px;
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        flex:1 1 auto;
+        min-width:0;
       }
       .nav-pill a{
         text-decoration:none;
@@ -75,11 +84,46 @@
         padding: 8px 12px;
         border-radius: 999px;
         color: rgba(255,255,255,.78);
+        white-space:nowrap;
       }
       .nav-pill a.active,
       .nav-pill a:hover{
         background: rgba(255,255,255,.10);
         color:#fff;
+      }
+      .topbar-actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap:8px;
+        flex-wrap:wrap;
+      }
+      .lang-switch{
+        display:flex;
+        align-items:center;
+        gap:4px;
+        padding:4px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .lang-btn{
+        border:0;
+        background:transparent;
+        color: rgba(255,255,255,.74);
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.04em;
+      }
+      .lang-btn.active{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+      .lang-btn:focus-visible{
+        outline:2px solid rgba(125,211,252,.45);
+        outline-offset:2px;
       }
       .icon-btn{
         width: 36px; height: 36px;
@@ -89,6 +133,12 @@
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        text-decoration:none;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      }
+      .icon-btn:hover{
+        background: rgba(255,255,255,.10);
+        color:#fff;
       }
 
       /* HERO */
@@ -353,7 +403,24 @@
         .hero-content{ padding: 34px 22px; }
         .topbar{ flex-wrap: wrap; justify-content:center; }
         .brand-logo{ order: 1; width: 100%; justify-content:center; }
-        .nav-pill{ order: 2; }
+        .nav-pill{
+          order: 2;
+          width:100%;
+          max-width:100%;
+          flex-wrap:wrap;
+          gap:8px 6px;
+          border-radius:24px;
+          padding:10px;
+        }
+        .nav-pill a{
+          font-size:12px;
+          padding:7px 10px;
+        }
+        .topbar-actions{
+          order:3;
+          width:100%;
+          justify-content:center;
+        }
         .band-content{ padding: 22px; }
       }
     </style>
@@ -369,19 +436,23 @@
         </div>
 
         <nav class="nav-pill" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="expertise.html">Expertise</a>
-          <a class="active" href="services.html">Services</a>
-          <a href="team.html">Team</a>
-          <a href="clients.html">Clients</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="expertise.html" data-i18n="nav.expertise">Expertise</a>
+          <a class="active" href="services.html" data-i18n="nav.services">Services</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="clients.html" data-i18n="nav.clients">Clients</a>
+          <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </nav>
 
-        <div class="d-flex gap-2">
-          <a class="icon-btn" href="#" aria-label="LinkedIn"><span style="font-size:12px;opacity:.8;">in</span></a>
-          <a class="icon-btn" href="#" aria-label="X"><span style="font-size:12px;opacity:.8;">X</span></a>
-          <a class="icon-btn" href="#" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
+        <div class="topbar-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn active" type="button" data-lang-toggle="en">EN</button>
+            <button class="lang-btn" type="button" data-lang-toggle="es">ES</button>
+          </div>
+          <a class="icon-btn" href="https://www.linkedin.com/in/jos%C3%A9-fernando-navia-113b2a1/" aria-label="LinkedIn" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">in</span></a>
+          <a class="icon-btn" href="http://x.com/FNavia" aria-label="X" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">X</span></a>
+          <a class="icon-btn" href="mailto:josefernandonavia@gmail.com" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
         </div>
       </header>
 
@@ -394,23 +465,23 @@
           <div class="hero-content">
             <div class="hero-brand" data-aos="fade-up" data-aos-delay="100">
               <span class="hero-brand-pill">NCA GROUP</span>
-              <span class="hero-brand-sub">Technology-Fueled · Cross-Border · Solutions</span>
+              <span class="hero-brand-sub" data-i18n-html="hero.brandSub">Technology-Fueled &middot; Cross-Border &middot; Solutions</span>
             </div>
 
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="170">
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="170" data-i18n-html="hero.title">
               Driving Innovation to Disruptive Levels:
               Technology-Fueled, Cross-Border Solutions Tailored to Transform Your Business.
             </h1>
 
-            <p class="hero-sub" data-aos="fade-up" data-aos-delay="240">
+            <p class="hero-sub" data-aos="fade-up" data-aos-delay="240" data-i18n="hero.sub">
               Design, innovation and implementation of strategic plans for competitive improvement and sustainable
               development of companies, supply chains, clusters, and productive sectors. Market research, innovation
               and diversification of products and services.
             </p>
 
             <div class="hero-cta" data-aos="fade-up" data-aos-delay="320">
-              <a class="btn btn-accent px-4 py-2" href="contact.html">Contact</a>
-              <a class="btn btn-soft px-4 py-2" href="#ai">Artificial Intelligence Solutions</a>
+              <a class="btn btn-accent px-4 py-2" href="contact.html" data-i18n="hero.ctaContact">Contact</a>
+              <a class="btn btn-soft px-4 py-2" href="#ai" data-i18n="hero.ctaAi">Artificial Intelligence Solutions</a>
             </div>
           </div>
         </div>
@@ -422,8 +493,8 @@
           <img src="assets/img/board-of-director-discussing-business-growth-in-co-2023-11-27-05-01-49-utc.jpg" alt="Advice to boards of directors">
           <div class="band-overlay"></div>
           <div class="band-content">
-            <div class="band-title">Advice to boards of directors</div>
-            <p class="band-text">
+            <div class="band-title" data-i18n="band.board.title">Advice to boards of directors</div>
+            <p class="band-text" data-i18n="band.board.body">
               Elevate your board's performance with Advice to boards of directors by NCA Group leaders.
               Leveraging decades of experience driving success for companies across diverse global clusters,
               we provide strategic guidance and actionable insights to optimize decision-making, enhance governance,
@@ -435,8 +506,8 @@
                 <img src="assets/img/persona1.png" alt="Meet Fernando Navia">
               </div>
               <div class="advisor-text">
-                <p class="advisor-name">Meet Fernando Navia,</p>
-                <p class="advisor-role">Director of Board Advisory at NCA Group.</p>
+                <p class="advisor-name" data-i18n="band.board.advisorName">Meet Fernando Navia,</p>
+                <p class="advisor-role" data-i18n="band.board.advisorRole">Director of Board Advisory at NCA Group.</p>
               </div>
             </div>
           </div>
@@ -449,8 +520,8 @@
           <img src="assets/img/businesswoman-working-on-laptop-in-meeting-2024-09-18-23-58-10-utc.jpg" alt="Strategic Planning">
           <div class="band-overlay"></div>
           <div class="band-content">
-            <div class="band-title">Strategic Planning</div>
-            <p class="band-text">
+            <div class="band-title" data-i18n="band.strategic.title">Strategic Planning</div>
+            <p class="band-text" data-i18n="band.strategic.body">
               Design, innovation and implementation of strategic plans for competitive improvement and sustainable
               development of companies, supply chains, clusters, and productive sectors. Market research, innovation
               and diversification of products and services.
@@ -465,8 +536,8 @@
           <img src="assets/img/business-professional-analysis-financial-data-with-2024-10-11-21-39-11-utc.jpg" alt="Market Analysis">
           <div class="band-overlay"></div>
           <div class="band-content">
-            <div class="band-title">Market Analysis</div>
-            <p class="band-text">
+            <div class="band-title" data-i18n="band.market.title">Market Analysis</div>
+            <p class="band-text" data-i18n="band.market.body">
               Market and sales decisions based on expert management of business data: business intelligence platforms
               for strategic change management, and dashboards for ongoing strategic innovation.
             </p>
@@ -480,8 +551,8 @@
           <img src="assets/img/foreman-engineer-man-control-loading-containers-bo-2024-05-27-02-39-04-utc.jpg" alt="Operations innovation">
           <div class="band-overlay"></div>
           <div class="band-content">
-            <div class="band-title">Operations innovation</div>
-            <p class="band-text">
+            <div class="band-title" data-i18n="band.operations.title">Operations innovation</div>
+            <p class="band-text" data-i18n="band.operations.body">
               Applied technology for innovation, value chain transformation, delivery cost reduction, new levels of
               quality and response reliability. Supply chain innovation from sourcing to creating customer value logistics.
             </p>
@@ -495,12 +566,12 @@
           <img src="assets/img/team-meeting-with-client-online-2023-11-27-05-15-52-utc.jpg" alt="From exporters to global marketers">
           <div class="band-overlay"></div>
           <div class="band-content">
-            <div class="band-title">From exporters to global marketers</div>
-            <p class="band-text">
+            <div class="band-title" data-i18n="band.exporters.title">From exporters to global marketers</div>
+            <p class="band-text" data-i18n="band.exporters.body">
               To ensure your penetration and sales growth in international markets we provide tailored strategies,
-              expert guidance, and unparalleled support. Whether you’re expanding into new territories or seeking
-              innovative opportunities, we’re here to simplify the process and connect you with key customers,
-              international finance and kwy resources.
+              expert guidance, and unparalleled support. Whether you're expanding into new territories or seeking
+              innovative opportunities, we're here to simplify the process and connect you with key customers,
+              international finance and key resources.
             </p>
           </div>
         </div>
@@ -512,8 +583,8 @@
           <img src="assets/img/business-people-are-meeting-for-analysis-data-and-2023-11-27-05-36-29-utc.jpg" alt="Sustainability Consulting">
           <div class="band-overlay"></div>
           <div class="band-content">
-            <div class="band-title">Sustainability Consulting</div>
-            <p class="band-text">
+            <div class="band-title" data-i18n="band.sustainability.title">Sustainability Consulting</div>
+            <p class="band-text" data-i18n="band.sustainability.body">
               Our sustainability consulting services are designed to help businesses implement eco-friendly practices,
               optimize resources, and align with global sustainability goals. Together, we create strategies that drive
               growth while protecting our planet for future generations.
@@ -525,40 +596,40 @@
       <!-- Artificial Intelligence Solutions -->
       <section class="section pt-0" id="ai">
         <div class="ai-wrap" data-aos="fade-up" data-aos-duration="650">
-          <div class="kicker">Artificial Intelligence Solutions</div>
+          <div class="kicker" data-i18n="ai.kicker">Artificial Intelligence Solutions</div>
 
           <div class="row g-3 mt-2">
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
               <div class="ai-card">
-                <h3>Data Analytics &amp; Predictive Modeling</h3>
-                <p>Leverage the power of AI to gain deeper insights from your data and predict future trends.</p>
+                <h3 data-i18n-html="ai.card1.title">Data Analytics &amp; Predictive Modeling</h3>
+                <p data-i18n="ai.card1.body">Leverage the power of AI to gain deeper insights from your data and predict future trends.</p>
               </div>
             </div>
 
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="90">
               <div class="ai-card">
-                <h3>Machine Learning for Automation</h3>
-                <p>Streamline your operations and improve efficiency with AI-powered automation.</p>
+                <h3 data-i18n="ai.card2.title">Machine Learning for Automation</h3>
+                <p data-i18n="ai.card2.body">Streamline your operations and improve efficiency with AI-powered automation.</p>
               </div>
             </div>
 
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="180">
               <div class="ai-card">
-                <h3>Natural Language Processing (NLP)</h3>
-                <p>Utilize NLP techniques to analyze text data, understand customer sentiment, and enhance communication.</p>
+                <h3 data-i18n="ai.card3.title">Natural Language Processing (NLP)</h3>
+                <p data-i18n="ai.card3.body">Utilize NLP techniques to analyze text data, understand customer sentiment, and enhance communication.</p>
               </div>
             </div>
 
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="270">
               <div class="ai-card">
-                <h3>Computer Vision</h3>
-                <p>Implement computer vision solutions for image recognition, object detection, and enhanced visual analysis.</p>
+                <h3 data-i18n="ai.card4.title">Computer Vision</h3>
+                <p data-i18n="ai.card4.body">Implement computer vision solutions for image recognition, object detection, and enhanced visual analysis.</p>
               </div>
             </div>
           </div>
 
           <div class="mt-3 d-flex justify-content-end">
-            <a class="btn btn-soft px-4 py-2" href="contact.html">SEE MORE</a>
+            <a class="btn btn-soft px-4 py-2" href="contact.html" data-i18n="ai.button">SEE MORE</a>
           </div>
         </div>
       </section>
@@ -569,26 +640,26 @@
           <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo in footer" />
           <div>
             <strong>NCA GROUP</strong>
-            <div class="footer-tagline">Driving innovation to disruptive levels.</div>
+            <div class="footer-tagline" data-i18n="footer.tagline">Driving innovation to disruptive levels.</div>
           </div>
         </div>
 
         <div>
-          <strong>Office</strong><br/>
+          <strong data-i18n="footer.office">Office</strong><br/>
           3055 NW 126 Ave, Sunrise, FL 33323
         </div>
 
         <div>
-          <strong>Contact</strong><br/>
+          <strong data-i18n="footer.contact">Contact</strong><br/>
           +1 (954) 937 5266<br/>
           fnavia@naviaconsulting.us
         </div>
 
         <div>
-          <strong>Links</strong><br/>
-          <a href="expertise.html" class="text-decoration-none">Expertise</a> ·
-          <a href="blog.html" class="text-decoration-none">Blog</a> ·
-          <a href="contact.html" class="text-decoration-none">Contact</a>
+          <strong data-i18n="footer.links">Links</strong><br/>
+          <a href="expertise.html" class="text-decoration-none" data-i18n="footer.expertise">Expertise</a> &middot;
+          <a href="blog.html" class="text-decoration-none" data-i18n="footer.blog">Blog</a> &middot;
+          <a href="contact.html" class="text-decoration-none" data-i18n="footer.contactLink">Contact</a>
         </div>
       </footer>
 
@@ -597,6 +668,153 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+      const translations = {
+        en: {
+          pageTitle: "NCA GROUP | Services",
+          "nav.home": "Home",
+          "nav.expertise": "Expertise",
+          "nav.services": "Services",
+          "nav.team": "Team",
+          "nav.clients": "Clients",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.brandSub": "Technology-Fueled &middot; Cross-Border &middot; Solutions",
+          "hero.title": "Driving Innovation to Disruptive Levels:<br/>Technology-Fueled, Cross-Border Solutions Tailored to Transform Your Business.",
+          "hero.sub": "Design, innovation and implementation of strategic plans for competitive improvement and sustainable development of companies, supply chains, clusters, and productive sectors. Market research, innovation and diversification of products and services.",
+          "hero.ctaContact": "Contact",
+          "hero.ctaAi": "Artificial Intelligence Solutions",
+          "band.board.title": "Advice to boards of directors",
+          "band.board.body": "Elevate your board's performance with Advice to boards of directors by NCA Group leaders. Leveraging decades of experience driving success for companies across diverse global clusters, we provide strategic guidance and actionable insights to optimize decision-making, enhance governance, and unlock new growth opportunities.",
+          "band.board.advisorName": "Meet Fernando Navia,",
+          "band.board.advisorRole": "Director of Board Advisory at NCA Group.",
+          "band.strategic.title": "Strategic Planning",
+          "band.strategic.body": "Design, innovation and implementation of strategic plans for competitive improvement and sustainable development of companies, supply chains, clusters, and productive sectors. Market research, innovation and diversification of products and services.",
+          "band.market.title": "Market Analysis",
+          "band.market.body": "Market and sales decisions based on expert management of business data: business intelligence platforms for strategic change management, and dashboards for ongoing strategic innovation.",
+          "band.operations.title": "Operations innovation",
+          "band.operations.body": "Applied technology for innovation, value chain transformation, delivery cost reduction, new levels of quality and response reliability. Supply chain innovation from sourcing to creating customer value logistics.",
+          "band.exporters.title": "From exporters to global marketers",
+          "band.exporters.body": "To ensure your penetration and sales growth in international markets we provide tailored strategies, expert guidance, and unparalleled support. Whether you're expanding into new territories or seeking innovative opportunities, we're here to simplify the process and connect you with key customers, international finance and key resources.",
+          "band.sustainability.title": "Sustainability Consulting",
+          "band.sustainability.body": "Our sustainability consulting services are designed to help businesses implement eco-friendly practices, optimize resources, and align with global sustainability goals. Together, we create strategies that drive growth while protecting our planet for future generations.",
+          "ai.kicker": "Artificial Intelligence Solutions",
+          "ai.card1.title": "Data Analytics &amp; Predictive Modeling",
+          "ai.card1.body": "Leverage the power of AI to gain deeper insights from your data and predict future trends.",
+          "ai.card2.title": "Machine Learning for Automation",
+          "ai.card2.body": "Streamline your operations and improve efficiency with AI-powered automation.",
+          "ai.card3.title": "Natural Language Processing (NLP)",
+          "ai.card3.body": "Utilize NLP techniques to analyze text data, understand customer sentiment, and enhance communication.",
+          "ai.card4.title": "Computer Vision",
+          "ai.card4.body": "Implement computer vision solutions for image recognition, object detection, and enhanced visual analysis.",
+          "ai.button": "SEE MORE",
+          "footer.tagline": "Driving innovation to disruptive levels.",
+          "footer.office": "Office",
+          "footer.contact": "Contact",
+          "footer.links": "Links",
+          "footer.expertise": "Expertise",
+          "footer.blog": "Blog",
+          "footer.contactLink": "Contact"
+        },
+        es: {
+          pageTitle: "NCA GROUP | Servicios",
+          "nav.home": "Inicio",
+          "nav.expertise": "Experticia",
+          "nav.services": "Servicios",
+          "nav.team": "Equipo",
+          "nav.clients": "Clientes",
+          "nav.blog": "Blog",
+          "nav.contact": "Contacto",
+          "hero.brandSub": "Soluciones &middot; Transfronterizas &middot; Impulsadas por tecnologia",
+          "hero.title": "Impulsando la innovacion a niveles disruptivos:<br/>soluciones transfronterizas e impulsadas por tecnologia para transformar su negocio.",
+          "hero.sub": "Diseno, innovacion e implementacion de planes estrategicos para la mejora competitiva y el desarrollo sostenible de empresas, cadenas de suministro, clusters y sectores productivos. Investigacion de mercados, innovacion y diversificacion de productos y servicios.",
+          "hero.ctaContact": "Contacto",
+          "hero.ctaAi": "Soluciones de inteligencia artificial",
+          "band.board.title": "Asesoria para juntas directivas",
+          "band.board.body": "Eleve el desempeno de su junta directiva con la asesoria para juntas directivas de los lideres de NCA Group. Aprovechando decadas de experiencia impulsando el exito de empresas en diversos clusters globales, brindamos orientacion estrategica e informacion accionable para optimizar la toma de decisiones, fortalecer la gobernanza y abrir nuevas oportunidades de crecimiento.",
+          "band.board.advisorName": "Conozca a Fernando Navia,",
+          "band.board.advisorRole": "Director de asesoria para juntas directivas en NCA Group.",
+          "band.strategic.title": "Planificacion estrategica",
+          "band.strategic.body": "Diseno, innovacion e implementacion de planes estrategicos para la mejora competitiva y el desarrollo sostenible de empresas, cadenas de suministro, clusters y sectores productivos. Investigacion de mercados, innovacion y diversificacion de productos y servicios.",
+          "band.market.title": "Analisis de mercado",
+          "band.market.body": "Decisiones comerciales y de ventas basadas en una gestion experta de datos empresariales: plataformas de inteligencia de negocios para la gestion estrategica del cambio y tableros para la innovacion estrategica continua.",
+          "band.operations.title": "Innovacion operativa",
+          "band.operations.body": "Tecnologia aplicada para la innovacion, transformacion de la cadena de valor, reduccion de costos de entrega y nuevos niveles de calidad y confiabilidad de respuesta. Innovacion en la cadena de suministro desde el abastecimiento hasta la logistica de creacion de valor para el cliente.",
+          "band.exporters.title": "De exportadores a comercializadores globales",
+          "band.exporters.body": "Para asegurar su penetracion y crecimiento de ventas en mercados internacionales, ofrecemos estrategias a la medida, orientacion experta y un apoyo sobresaliente. Ya sea que se expanda a nuevos territorios o busque oportunidades innovadoras, estamos aqui para simplificar el proceso y conectarlo con clientes clave, financiamiento internacional y recursos clave.",
+          "band.sustainability.title": "Consultoria en sostenibilidad",
+          "band.sustainability.body": "Nuestros servicios de consultoria en sostenibilidad estan disenados para ayudar a las empresas a implementar practicas responsables con el medio ambiente, optimizar recursos y alinearse con objetivos globales de sostenibilidad. Juntos creamos estrategias que impulsan el crecimiento mientras protegemos el planeta para las futuras generaciones.",
+          "ai.kicker": "Soluciones de inteligencia artificial",
+          "ai.card1.title": "Analitica de datos y modelado predictivo",
+          "ai.card1.body": "Aproveche el poder de la IA para obtener conocimientos mas profundos de sus datos y anticipar tendencias futuras.",
+          "ai.card2.title": "Aprendizaje automatico para automatizacion",
+          "ai.card2.body": "Agilice sus operaciones y mejore la eficiencia con automatizacion impulsada por IA.",
+          "ai.card3.title": "Procesamiento de lenguaje natural (NLP)",
+          "ai.card3.body": "Utilice tecnicas de NLP para analizar datos de texto, comprender el sentimiento del cliente y mejorar la comunicacion.",
+          "ai.card4.title": "Vision por computadora",
+          "ai.card4.body": "Implemente soluciones de vision por computadora para reconocimiento de imagenes, deteccion de objetos y analisis visual avanzado.",
+          "ai.button": "VER MAS",
+          "footer.tagline": "Impulsando la innovacion a niveles disruptivos.",
+          "footer.office": "Oficina",
+          "footer.contact": "Contacto",
+          "footer.links": "Enlaces",
+          "footer.expertise": "Experticia",
+          "footer.blog": "Blog",
+          "footer.contactLink": "Contacto"
+        }
+      };
+
+      const languageButtons = document.querySelectorAll("[data-lang-toggle]");
+
+      function applyLanguage(lang){
+        const dictionary = translations[lang] || translations.en;
+
+        document.documentElement.lang = lang;
+        document.title = dictionary.pageTitle;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (dictionary[key]) {
+            element.textContent = dictionary[key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+          const key = element.dataset.i18nHtml;
+          if (dictionary[key]) {
+            element.innerHTML = dictionary[key];
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.langToggle === lang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        try{
+          localStorage.setItem("nca-group-home-lang", lang);
+        }catch (error){
+          // Ignore storage restrictions.
+        }
+      }
+
+      const savedLanguage = (() => {
+        try{
+          const storedLanguage = localStorage.getItem("nca-group-home-lang");
+          return translations[storedLanguage] ? storedLanguage : "en";
+        }catch (error){
+          return "en";
+        }
+      })();
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.langToggle);
+        });
+      });
+
+      applyLanguage(savedLanguage);
+
       AOS.init({ duration:650, easing:"ease-out", once:false, offset:80 });
     </script>
   </body>

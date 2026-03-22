@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NCA GROUP | Blog</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/54d5aee5-4ee0-4563-89ad-f7b02073e2c0.jfif" />
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -54,6 +55,11 @@
         justify-content:space-between;
         gap: 12px;
       }
+      .brand-logo{
+        display:flex;
+        align-items:center;
+        min-width:170px;
+      }
       .brand-logo img{
         height: 100px;
         width: auto;
@@ -63,11 +69,14 @@
       .nav-pill{
         display:flex;
         align-items:center;
+        justify-content:center;
         gap: 6px;
         padding: 6px;
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        flex:1 1 auto;
+        min-width:0;
       }
       .nav-pill a{
         text-decoration:none;
@@ -75,11 +84,46 @@
         padding: 8px 12px;
         border-radius: 999px;
         color: rgba(255,255,255,.78);
+        white-space:nowrap;
       }
       .nav-pill a.active,
       .nav-pill a:hover{
         background: rgba(255,255,255,.10);
         color:#fff;
+      }
+      .topbar-actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap:8px;
+        flex-wrap:wrap;
+      }
+      .lang-switch{
+        display:flex;
+        align-items:center;
+        gap:4px;
+        padding:4px;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .lang-btn{
+        border:0;
+        background:transparent;
+        color: rgba(255,255,255,.74);
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:12px;
+        font-weight:700;
+        letter-spacing:.04em;
+      }
+      .lang-btn.active{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+      .lang-btn:focus-visible{
+        outline:2px solid rgba(125,211,252,.45);
+        outline-offset:2px;
       }
       .icon-btn{
         width: 36px; height: 36px;
@@ -89,6 +133,12 @@
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        text-decoration:none;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      }
+      .icon-btn:hover{
+        background: rgba(255,255,255,.10);
+        color:#fff;
       }
 
       /* HERO */
@@ -202,6 +252,80 @@
         padding-bottom: 2px;
       }
 
+      /* COLUMN FEATURE */
+      .column-feature{
+        margin-top: 18px;
+        border-radius: 24px;
+        border: 1px solid rgba(255,255,255,.12);
+        background:
+          radial-gradient(720px 220px at 0% 0%, rgba(125,211,252,.14), transparent 55%),
+          rgba(255,255,255,.05);
+        padding: 18px;
+      }
+      .column-feature-card{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 18px;
+        flex-wrap:wrap;
+      }
+      .column-feature-copy{
+        flex: 1 1 420px;
+        min-width: 0;
+      }
+      .column-feature-title{
+        margin: 0 0 8px;
+        font-size: 24px;
+        line-height: 1.08;
+        font-weight: 800;
+      }
+      .column-feature-text{
+        margin:0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 560px;
+      }
+      .column-feature-actions{
+        margin-top: 14px;
+      }
+      .column-feature-link{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.16);
+        background: rgba(255,255,255,.08);
+        color:#fff;
+        text-decoration:none;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .column-feature-link:hover{
+        color:#fff;
+        background: rgba(255,255,255,.14);
+      }
+      .column-feature-logo{
+        flex: 0 0 min(320px, 100%);
+        min-height: 120px;
+        padding: 20px 22px;
+        border-radius: 22px;
+        background: #fff;
+        border: 1px solid rgba(15,23,42,.08);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        box-shadow: 0 16px 32px rgba(0,0,0,.14);
+      }
+      .column-feature-logo img{
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        object-fit: contain;
+        display:block;
+      }
+
       /* Pagination */
       .pager{
         margin-top: 14px;
@@ -285,7 +409,27 @@
         .hero-content{ padding: 34px 22px; }
         .topbar{ flex-wrap: wrap; justify-content:center; }
         .brand-logo{ order: 1; width: 100%; justify-content:center; }
-        .nav-pill{ order: 2; }
+        .nav-pill{
+          order: 2;
+          width:100%;
+          max-width:100%;
+          flex-wrap:wrap;
+          gap:8px 6px;
+          border-radius:24px;
+          padding:10px;
+        }
+        .nav-pill a{
+          font-size:12px;
+          padding:7px 10px;
+        }
+        .topbar-actions{
+          order:3;
+          width:100%;
+          justify-content:center;
+        }
+        .column-feature-logo{
+          width:100%;
+        }
       }
     </style>
   </head>
@@ -300,19 +444,23 @@
         </div>
 
         <nav class="nav-pill" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="expertise.html">Expertise</a>
-          <a href="services.html">Services</a>
-          <a href="team.html">Team</a>
-          <a href="clients.html">Clients</a>
-          <a class="active" href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="expertise.html" data-i18n="nav.expertise">Expertise</a>
+          <a href="services.html" data-i18n="nav.services">Services</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="clients.html" data-i18n="nav.clients">Clients</a>
+          <a class="active" href="blog.html" data-i18n="nav.blog">Blog</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </nav>
 
-        <div class="d-flex gap-2">
-          <a class="icon-btn" href="#" aria-label="LinkedIn"><span style="font-size:12px;opacity:.8;">in</span></a>
-          <a class="icon-btn" href="#" aria-label="X"><span style="font-size:12px;opacity:.8;">X</span></a>
-          <a class="icon-btn" href="#" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
+        <div class="topbar-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn active" type="button" data-lang-toggle="en">EN</button>
+            <button class="lang-btn" type="button" data-lang-toggle="es">ES</button>
+          </div>
+          <a class="icon-btn" href="https://www.linkedin.com/in/jos%C3%A9-fernando-navia-113b2a1/" aria-label="LinkedIn" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">in</span></a>
+          <a class="icon-btn" href="http://x.com/FNavia" aria-label="X" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">X</span></a>
+          <a class="icon-btn" href="mailto:josefernandonavia@gmail.com" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
         </div>
       </header>
 
@@ -325,7 +473,7 @@
 
           <div class="hero-content">
             <div class="kicker">NCA GROUP</div>
-            <h1 class="hero-title">Analysis and expert opinions on your topics of interest</h1>
+            <h1 class="hero-title" data-i18n="hero.title">Analysis and expert opinions on your topics of interest</h1>
           </div>
         </div>
       </section>
@@ -333,10 +481,28 @@
       <!-- LATEST NEWS (PDF) -->
       <section class="section">
         <div class="section-card" data-aos="fade-up" data-aos-duration="650">
-          <div class="h2">Latest News</div>
-          <p class="p-muted mt-1">
+          <div class="h2" data-i18n="news.title">Latest News</div>
+          <p class="p-muted mt-1" data-i18n="news.sub">
             Stay updated with the latest news by reading our articles written by content writers in the industry.
           </p>
+
+          <div class="column-feature" data-aos="fade-up" data-aos-delay="80">
+            <div class="column-feature-card">
+              <div class="column-feature-copy">
+                <div class="kicker" data-i18n="column.kicker">Featured Column</div>
+                <h2 class="column-feature-title" data-i18n="column.title">Fernando Navia as columnist in El Universo</h2>
+                <p class="column-feature-text" data-i18n="column.text">
+                  Explore Fernando Navia's opinion columns in El Universo, where he writes about economy, competitiveness, trade and strategic issues shaping business and public decision-making.
+                </p>
+                <div class="column-feature-actions">
+                  <a class="column-feature-link" href="https://www.eluniverso.com/columnista/fernando-navia/" target="_blank" rel="noreferrer" data-i18n="column.button">View published columns</a>
+                </div>
+              </div>
+              <a class="column-feature-logo" href="https://www.eluniverso.com/columnista/fernando-navia/" target="_blank" rel="noreferrer" aria-label="El Universo columns by Fernando Navia">
+                <img src="assets/img/universologo.png" alt="El Universo logo">
+              </a>
+            </div>
+          </div>
 
           <div class="row g-3 mt-3">
 
@@ -347,14 +513,14 @@
                   <img src="assets/img/farmer-on-a-tractor-cultivates-a-potato-plantation-2023-11-27-05-20-59-utc.jpg" alt="Post image 1">
                 </div>
                 <div class="post-body">
-                  <div class="post-cat">Sustainability</div>
-                  <h2 class="post-title">
-                    Enseñanza, comercio y salud, para la recuperación económica
+                  <div class="post-cat" data-i18n="post1.cat">Sustainability</div>
+                  <h2 class="post-title" data-i18n="post1.title">
+                    Education, trade and health for economic recovery
                   </h2>
-                  <p class="post-text">
-                    Tres pilares para que la economía de portoviejo tenga un despliegue: la enseñanza, el comercio y la salud.
+                  <p class="post-text" data-i18n="post1.text">
+                    Three pillars can help Portoviejo's economy gain momentum: education, trade and health.
                   </p>
-                  <a class="post-link" href="#">Read article</a>
+                  <a class="post-link" href="#" data-i18n="post.read">Read article</a>
                 </div>
               </article>
             </div>
@@ -366,14 +532,14 @@
                   <img src="assets/img/stock-market-charts-2023-11-27-05-12-01-utc.jpg" alt="Post image 2">
                 </div>
                 <div class="post-body">
-                  <div class="post-cat">Innovation</div>
-                  <h2 class="post-title">
+                  <div class="post-cat" data-i18n="post2.cat">Innovation</div>
+                  <h2 class="post-title" data-i18n="post2.title">
                     Taking a Globally Orchestrated Approach to Digital Disruption
                   </h2>
-                  <p class="post-text">
+                  <p class="post-text" data-i18n="post2.text">
                     New technologies such as generative AI, quantum computing, and climate technology require unique but complementary managerial muscles.
                   </p>
-                  <a class="post-link" href="#">Read article</a>
+                  <a class="post-link" href="#" data-i18n="post.read">Read article</a>
                 </div>
               </article>
             </div>
@@ -394,23 +560,14 @@
       <!-- CONTACT BLOCK (PDF) -->
       <section class="section pt-0">
         <div class="row g-3">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-duration="650">
+          <div class="col-lg-12" data-aos="fade-up" data-aos-duration="650">
             <div class="contact-box">
               <div class="kicker">NCA GROUP</div>
-              <div class="h2">Contact</div>
+              <div class="h2" data-i18n="contact.title">Contact</div>
 
               <p class="contact-line"><strong>3055 NW 126 Ave</strong><br/>Sunrise, FL 33323</p>
               <p class="contact-line"><strong>+1(954) 937 5266</strong></p>
               <p class="contact-line"><strong>fnavia@naviaconsulting.us</strong></p>
-            </div>
-          </div>
-
-          <div class="col-lg-8" data-aos="fade-up" data-aos-duration="650" data-aos-delay="80">
-            <div class="section-card">
-              <div class="kicker">Note</div>
-              <p class="p-muted">
-                This page displays the latest news layout and article highlights, consistent with the provided design.
-              </p>
             </div>
           </div>
         </div>
@@ -422,25 +579,25 @@
           <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo in footer" />
           <div>
             <strong>NCA GROUP</strong>
-            <div class="footer-tagline">Analysis and expert opinions on your topics of interest</div>
+            <div class="footer-tagline" data-i18n="footer.tagline">Analysis and expert opinions on your topics of interest</div>
           </div>
         </div>
 
         <div>
-          <strong>Office</strong><br/>
+          <strong data-i18n="footer.office">Office</strong><br/>
           3055 NW 126 Ave, Sunrise, FL 33323
         </div>
 
         <div>
-          <strong>Contact</strong><br/>
+          <strong data-i18n="footer.contact">Contact</strong><br/>
           +1(954) 937 5266<br/>
           fnavia@naviaconsulting.us
         </div>
 
-        <div>
-          <strong>Links</strong><br/>
-          <a href="clients.html" class="text-decoration-none">Clients</a> ·
-          <a href="contact.html" class="text-decoration-none">Contact</a>
+        <div id="footer-links-block">
+          <strong data-i18n="footer.links">Links</strong><br/>
+          <a href="clients.html" class="text-decoration-none" data-i18n="footer.clients">Clients</a> &middot;
+          <a href="contact.html" class="text-decoration-none" data-i18n="footer.contactLink">Contact</a>
         </div>
       </footer>
 
@@ -449,6 +606,124 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+      const languageButtons = document.querySelectorAll("[data-lang-toggle]");
+      const footerLinksBlock = document.getElementById("footer-links-block");
+      const translations = {
+        en: {
+          pageTitle: "NCA GROUP | Blog",
+          "nav.home": "Home",
+          "nav.expertise": "Expertise",
+          "nav.services": "Services",
+          "nav.team": "Team",
+          "nav.clients": "Clients",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.title": "Analysis and expert opinions on your topics of interest",
+          "news.title": "Latest News",
+          "news.sub": "Stay updated with the latest news by reading our articles written by content writers in the industry.",
+          "column.kicker": "Featured Column",
+          "column.title": "Fernando Navia as columnist in El Universo",
+          "column.text": "Explore Fernando Navia's opinion columns in El Universo, where he writes about economy, competitiveness, trade and strategic issues shaping business and public decision-making.",
+          "column.button": "View published columns",
+          "post1.cat": "Sustainability",
+          "post1.title": "Education, trade and health for economic recovery",
+          "post1.text": "Three pillars can help Portoviejo's economy gain momentum: education, trade and health.",
+          "post2.cat": "Innovation",
+          "post2.title": "Taking a Globally Orchestrated Approach to Digital Disruption",
+          "post2.text": "New technologies such as generative AI, quantum computing, and climate technology require unique but complementary managerial muscles.",
+          "post.read": "Read article",
+          "contact.title": "Contact",
+          "footer.tagline": "Analysis and expert opinions on your topics of interest",
+          "footer.office": "Office",
+          "footer.contact": "Contact",
+          "footer.links": "Links",
+          "footer.clients": "Clients",
+          "footer.contactLink": "Contact"
+        },
+        es: {
+          pageTitle: "NCA GROUP | Blog",
+          "nav.home": "Inicio",
+          "nav.expertise": "Expertise",
+          "nav.services": "Servicios",
+          "nav.team": "Equipo",
+          "nav.clients": "Clientes",
+          "nav.blog": "Blog",
+          "nav.contact": "Contacto",
+          "hero.title": "Analisis y opiniones expertas sobre sus temas de interes",
+          "news.title": "Ultimas noticias",
+          "news.sub": "Mantengase al dia con las ultimas noticias leyendo nuestros articulos escritos por especialistas del sector.",
+          "column.kicker": "Columna destacada",
+          "column.title": "Fernando Navia como columnista en El Universo",
+          "column.text": "Revise las columnas de opinion de Fernando Navia en El Universo, donde escribe sobre economia, competitividad, comercio y temas estrategicos que inciden en la toma de decisiones empresariales y publicas.",
+          "column.button": "Ver columnas publicadas",
+          "post1.cat": "Sostenibilidad",
+          "post1.title": "Ensenanza, comercio y salud, para la recuperacion economica",
+          "post1.text": "Tres pilares pueden ayudar a que la economia de Portoviejo gane impulso: la ensenanza, el comercio y la salud.",
+          "post2.cat": "Innovacion",
+          "post2.title": "Un enfoque globalmente orquestado para la disrupcion digital",
+          "post2.text": "Nuevas tecnologias como la IA generativa, la computacion cuantica y la tecnologia climatica exigen capacidades de gestion unicas pero complementarias.",
+          "post.read": "Leer articulo",
+          "contact.title": "Contacto",
+          "footer.tagline": "Analisis y opiniones expertas sobre sus temas de interes",
+          "footer.office": "Oficina",
+          "footer.contact": "Contacto",
+          "footer.links": "Enlaces",
+          "footer.clients": "Clientes",
+          "footer.contactLink": "Contacto"
+        }
+      };
+
+      function applyLanguage(lang){
+        const dictionary = translations[lang] || translations.en;
+
+        document.documentElement.lang = lang;
+        document.title = dictionary.pageTitle;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (dictionary[key]) {
+            element.textContent = dictionary[key];
+          }
+        });
+
+        if (footerLinksBlock) {
+          footerLinksBlock.innerHTML = `
+            <strong>${dictionary["footer.links"]}</strong><br/>
+            <a href="clients.html" class="text-decoration-none">${dictionary["footer.clients"]}</a> &middot;
+            <a href="contact.html" class="text-decoration-none">${dictionary["footer.contactLink"]}</a>
+          `;
+        }
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.langToggle === lang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        try{
+          localStorage.setItem("nca-group-home-lang", lang);
+        }catch (error){
+          // Ignore storage restrictions.
+        }
+      }
+
+      const savedLanguage = (() => {
+        try{
+          const storedLanguage = localStorage.getItem("nca-group-home-lang");
+          return translations[storedLanguage] ? storedLanguage : "en";
+        }catch (error){
+          return "en";
+        }
+      })();
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.langToggle);
+        });
+      });
+
+      applyLanguage(savedLanguage);
+
       AOS.init({ duration:650, easing:"ease-out", once:false, offset:80 });
     </script>
   </body>

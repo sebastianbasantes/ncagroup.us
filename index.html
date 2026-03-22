@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NCA GROUP | Home</title>
+    <link rel="icon" type="image/jpeg" href="assets/img/54d5aee5-4ee0-4563-89ad-f7b02073e2c0.jfif" />
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -71,11 +72,14 @@
       .nav-pill{
         display:flex;
         align-items:center;
+        justify-content:center;
         gap: 6px;
         padding: 6px;
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        flex: 1 1 auto;
+        min-width: 0;
       }
       .nav-pill a{
         text-decoration:none;
@@ -83,11 +87,47 @@
         padding: 8px 12px;
         border-radius: 999px;
         color: rgba(255,255,255,.78);
+        white-space: nowrap;
       }
       .nav-pill a.active,
       .nav-pill a:hover{
         background: rgba(255,255,255,.10);
         color:#fff;
+      }
+
+      .topbar-actions{
+        display:flex;
+        align-items:center;
+        justify-content:flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .lang-switch{
+        display:flex;
+        align-items:center;
+        gap: 4px;
+        padding: 4px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(0,0,0,.25);
+      }
+      .lang-btn{
+        border: 0;
+        background: transparent;
+        color: rgba(255,255,255,.74);
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .04em;
+      }
+      .lang-btn.active{
+        background: rgba(255,255,255,.10);
+        color:#fff;
+      }
+      .lang-btn:focus-visible{
+        outline: 2px solid rgba(125,211,252,.45);
+        outline-offset: 2px;
       }
 
       .icon-btn{
@@ -98,6 +138,12 @@
         border-radius: 999px;
         border: 1px solid var(--border);
         background: rgba(0,0,0,.25);
+        text-decoration:none;
+        transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+      }
+      .icon-btn:hover{
+        background: rgba(255,255,255,.10);
+        color:#fff;
       }
 
       /* HERO */
@@ -383,7 +429,24 @@
         .hero-content{ padding: 34px 22px; }
         .topbar{ flex-wrap: wrap; justify-content:center; }
         .brand-logo{ order: 1; width: 100%; justify-content:center; }
-        .nav-pill{ order: 2; }
+        .nav-pill{
+          order: 2;
+          width: 100%;
+          max-width: 100%;
+          flex-wrap: wrap;
+          gap: 8px 6px;
+          border-radius: 24px;
+          padding: 10px;
+        }
+        .nav-pill a{
+          font-size: 12px;
+          padding: 7px 10px;
+        }
+        .topbar-actions{
+          order: 3;
+          width: 100%;
+          justify-content:center;
+        }
       }
     </style>
   </head>
@@ -398,54 +461,58 @@
         </div>
 
         <nav class="nav-pill" aria-label="Primary">
-          <a class="active" href="index.html">Home</a>
-          <a href="expertise.html">Expertise</a>
-          <a href="services.html">Services</a>
-          <a href="team.html">Team</a>
-          <a href="clients.html">Clients</a>
-          <a href="blog.html">Blog</a>
-          <a href="contact.html">Contact</a>
+          <a class="active" href="index.html" data-i18n="nav.home">Home</a>
+          <a href="expertise.html" data-i18n="nav.expertise">Expertise</a>
+          <a href="services.html" data-i18n="nav.services">Services</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="clients.html" data-i18n="nav.clients">Clients</a>
+          <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </nav>
 
-        <div class="d-flex gap-2">
-          <a class="icon-btn" href="#" aria-label="LinkedIn"><span style="font-size:12px;opacity:.8;">in</span></a>
-          <a class="icon-btn" href="#" aria-label="X"><span style="font-size:12px;opacity:.8;">X</span></a>
-          <a class="icon-btn" href="#" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
+        <div class="topbar-actions">
+          <div class="lang-switch" role="group" aria-label="Language selector">
+            <button class="lang-btn active" type="button" data-lang-toggle="en">EN</button>
+            <button class="lang-btn" type="button" data-lang-toggle="es">ES</button>
+          </div>
+          <a class="icon-btn" href="https://www.linkedin.com/in/jos%C3%A9-fernando-navia-113b2a1/" aria-label="LinkedIn" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">in</span></a>
+          <a class="icon-btn" href="http://x.com/FNavia" aria-label="X" target="_blank" rel="noreferrer"><span style="font-size:12px;opacity:.8;">X</span></a>
+          <a class="icon-btn" href="mailto:josefernandonavia@gmail.com" aria-label="Email"><span style="font-size:12px;opacity:.8;">@</span></a>
         </div>
       </header>
 
       <!-- HERO -->
       <section class="hero">
         <div class="hero-card" data-aos="fade-up" data-aos-duration="700">
-          <img class="hero-img" src="assets/img/investment-stockbroker-stock-trading-2023-11-27-05-32-16-utc.jpg" alt="Imagen hero NCA Group" />
+          <img class="hero-img" src="assets/img/investment-stockbroker-stock-trading-2023-11-27-05-32-16-utc.jpg" alt="NCA GROUP hero image" />
           <div class="hero-overlay"></div>
 
           <div class="hero-content">
             <div class="hero-brand" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
               <span class="hero-brand-pill">NCA GROUP</span>
-              <span class="hero-brand-sub">Competitive Strategy · Sustainable Growth · International Trade</span>
+              <span class="hero-brand-sub" data-i18n-html="hero.brandSub">Competitive Strategy &middot; Sustainable Growth &middot; International Trade</span>
             </div>
 
-            <div class="kicker" data-aos="fade-up" data-aos-delay="150" data-aos-duration="700">Your Partner for</div>
+            <div class="kicker" data-aos="fade-up" data-aos-delay="150" data-aos-duration="700" data-i18n="hero.kicker">Your Partner for</div>
 
-            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700">
+            <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200" data-aos-duration="700" data-i18n-html="hero.title">
               Competitive<br/>
               Strategy,<br/>
               Sustainable Growth,<br/>
               and International Trade.
             </h1>
 
-            <p class="hero-sub" data-aos="fade-up" data-aos-delay="260" data-aos-duration="700">
+            <p class="hero-sub" data-aos="fade-up" data-aos-delay="260" data-aos-duration="700" data-i18n="hero.sub">
               NCA GROUP brings together consulting companies specializing in competitive strategy,
               sustainable growth, and international trade solutions for businesses, clusters, and governments.
-              With a proven track record of success, we help clients navigate today’s complex global landscape
+              With a proven track record of success, we help clients navigate today's complex global landscape
               and achieve strategic objectives.
             </p>
 
             <div class="hero-cta" data-aos="fade-up" data-aos-delay="320" data-aos-duration="700">
-              <a class="btn btn-accent px-4 py-2" href="services.html">Our Services</a>
-              <a class="btn btn-soft px-4 py-2" href="#about">About Us</a>
-              <a class="btn btn-soft px-4 py-2" href="#companies">Our Companies</a>
+              <a class="btn btn-accent px-4 py-2" href="services.html" data-i18n="hero.ctaServices">Our Services</a>
+              <a class="btn btn-soft px-4 py-2" href="#about" data-i18n="hero.ctaAbout">About Us</a>
+              <a class="btn btn-soft px-4 py-2" href="#companies" data-i18n="hero.ctaCompanies">Our Companies</a>
             </div>
           </div>
         </div>
@@ -456,8 +523,8 @@
         <div class="section-card" data-aos="fade-up" data-aos-duration="650">
           <div class="row g-4 align-items-start">
             <div class="col-lg-5">
-              <h2 class="h2">About us</h2>
-              <p class="p-muted">
+              <h2 class="h2" data-i18n="about.title">About us</h2>
+              <p class="p-muted" data-i18n="about.body">
                 We support organizations with strategy, market intelligence, and international expansion.
                 Our work is focused on decision-ready insights and execution support for measurable outcomes.
               </p>
@@ -467,8 +534,8 @@
               <div class="row g-3">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="0" data-aos-duration="650">
                   <div class="service-card">
-                    <h3>Strategic Planning</h3>
-                    <p>
+                    <h3 data-i18n="about.card1.title">Strategic Planning</h3>
+                    <p data-i18n="about.card1.body">
                       Our strategic planning services are designed to empower your business
                       with a clear roadmap to success.
                     </p>
@@ -477,8 +544,8 @@
 
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="80" data-aos-duration="650">
                   <div class="service-card">
-                    <h3>Market Analysis</h3>
-                    <p>
+                    <h3 data-i18n="about.card2.title">Market Analysis</h3>
+                    <p data-i18n="about.card2.body">
                       We provide deep insights into industry trends, customer behavior,
                       and competitive landscapes.
                     </p>
@@ -487,8 +554,8 @@
 
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="160" data-aos-duration="650">
                   <div class="service-card">
-                    <h3>Export Development</h3>
-                    <p>
+                    <h3 data-i18n="about.card3.title">Export Development</h3>
+                    <p data-i18n="about.card3.body">
                       Our export development services help businesses expand into global markets with confidence.
                     </p>
                   </div>
@@ -499,12 +566,12 @@
                    data-aos="fade-up" data-aos-delay="220" data-aos-duration="650">
                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
                   <div>
-                    <div class="kicker">Latest News</div>
-                    <div style="color:var(--muted); font-size:13px;">
+                    <div class="kicker" data-i18n="about.news.kicker">Latest News</div>
+                    <div style="color:var(--muted); font-size:13px;" data-i18n="about.news.body">
                       Stay updated with the latest news by reading our articles written by content writers in the industry.
                     </div>
                   </div>
-                  <a class="btn btn-soft px-3 py-2" href="blog.html">View all</a>
+                  <a class="btn btn-soft px-3 py-2" href="blog.html" data-i18n="about.news.button">View all</a>
                 </div>
               </div>
 
@@ -518,13 +585,13 @@
         <div class="companies-wrap" data-aos="fade-up" data-aos-duration="650">
           <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
             <div>
-              <div class="kicker">Our Companies</div>
-              <div class="h2" style="margin:6px 0 0;">Three specialized companies. One strategic partner.</div>
-              <p class="p-muted" style="margin-top:8px;">
+              <div class="kicker" data-i18n="companies.kicker">Our Companies</div>
+              <div class="h2" style="margin:6px 0 0;" data-i18n="companies.title">Three specialized companies. One strategic partner.</div>
+              <p class="p-muted" style="margin-top:8px;" data-i18n="companies.body">
                 NCA GROUP integrates complementary expertise across strategy, sustainability, and international trade.
               </p>
             </div>
-            <a class="btn btn-soft px-3 py-2" href="services.html">Explore services</a>
+            <a class="btn btn-soft px-3 py-2" href="services.html" data-i18n="companies.explore">Explore services</a>
           </div>
 
           <div class="row g-3">
@@ -536,15 +603,15 @@
                   </div>
                   <div>
                     <p class="company-title">Expand Trading & Consulting</p>
-                    <p class="company-sub">International trade and business development.</p>
+                    <p class="company-sub" data-i18n="companies.expand.sub">International trade and business development.</p>
                   </div>
                 </div>
-                <p class="company-body">
+                <p class="company-body" data-i18n="companies.expand.body">
                   Export strategy, market entry planning, partner identification, and execution support for sustainable international growth.
                 </p>
                 <div class="company-actions">
-                  <a class="btn btn-accent px-3 py-2" href="services.html">View services</a>
-                  <a class="btn btn-soft px-3 py-2" href="contact.html">Contact</a>
+                  <a class="btn btn-accent px-3 py-2" href="services.html" data-i18n="companies.viewServices">View services</a>
+                  <a class="btn btn-soft px-3 py-2" href="contact.html" data-i18n="common.contact">Contact</a>
                 </div>
               </div>
             </div>
@@ -557,15 +624,15 @@
                   </div>
                   <div>
                     <p class="company-title">AIMS SASBIC</p>
-                    <p class="company-sub">Sustainability frameworks and reporting.</p>
+                    <p class="company-sub" data-i18n="companies.aims.sub">Sustainability frameworks and reporting.</p>
                   </div>
                 </div>
-                <p class="company-body">
+                <p class="company-body" data-i18n="companies.aims.body">
                   Sustainability strategy, standards alignment, and reporting support to improve transparency, resilience, and stakeholder trust.
                 </p>
                 <div class="company-actions">
-                  <a class="btn btn-accent px-3 py-2" href="services.html">View services</a>
-                  <a class="btn btn-soft px-3 py-2" href="contact.html">Contact</a>
+                  <a class="btn btn-accent px-3 py-2" href="services.html" data-i18n="companies.viewServices">View services</a>
+                  <a class="btn btn-soft px-3 py-2" href="contact.html" data-i18n="common.contact">Contact</a>
                 </div>
               </div>
             </div>
@@ -578,15 +645,15 @@
                   </div>
                   <div>
                     <p class="company-title">Navia Consultores SA</p>
-                    <p class="company-sub">Competitive strategy and market intelligence.</p>
+                    <p class="company-sub" data-i18n="companies.navia.sub">Competitive strategy and market intelligence.</p>
                   </div>
                 </div>
-                <p class="company-body">
+                <p class="company-body" data-i18n="companies.navia.body">
                   Decision-ready insights, strategic planning, and execution support for measurable outcomes and long-term value creation.
                 </p>
                 <div class="company-actions">
-                  <a class="btn btn-accent px-3 py-2" href="services.html">View services</a>
-                  <a class="btn btn-soft px-3 py-2" href="contact.html">Contact</a>
+                  <a class="btn btn-accent px-3 py-2" href="services.html" data-i18n="companies.viewServices">View services</a>
+                  <a class="btn btn-soft px-3 py-2" href="contact.html" data-i18n="common.contact">Contact</a>
                 </div>
               </div>
             </div>
@@ -602,10 +669,10 @@
             <article class="news-card">
               <img src="assets/img/technology-human-touch-background-modern-remake-creation-adam.png" alt="Imagen noticia 1" />
               <div class="news-body">
-                <div class="news-meta">Sustainability</div>
-                <h3 class="news-title">AI and Sustainability: The Power of Integration</h3>
-                <p class="p-muted" style="font-size:14px;">
-                  Three practices will help companies deploy a more carbon-conscious “eco-AI” approach to their technology and operations.
+                <div class="news-meta" data-i18n="news.card1.meta">Sustainability</div>
+                <h3 class="news-title" data-i18n="news.card1.title">AI and Sustainability: The Power of Integration</h3>
+                <p class="p-muted" style="font-size:14px;" data-i18n="news.card1.body">
+                  Three practices will help companies deploy a more carbon-conscious "eco-AI" approach to their technology and operations.
                 </p>
               </div>
             </article>
@@ -615,9 +682,9 @@
             <article class="news-card">
               <img src="assets/img/foreman-engineer-man-control-loading-containers-bo-2024-05-27-02-39-04-utc.jpg" alt="Imagen noticia 2" />
               <div class="news-body">
-                <div class="news-meta">International Trade</div>
-                <h3 class="news-title">Global Market Entry: Key Execution Steps</h3>
-                <p class="p-muted" style="font-size:14px;">
+                <div class="news-meta" data-i18n="news.card2.meta">International Trade</div>
+                <h3 class="news-title" data-i18n="news.card2.title">Global Market Entry: Key Execution Steps</h3>
+                <p class="p-muted" style="font-size:14px;" data-i18n="news.card2.body">
                   A structured approach to reduce risk and accelerate early traction in new international markets.
                 </p>
               </div>
@@ -628,9 +695,9 @@
             <article class="news-card">
               <img src="assets/img/business-professional-analysis-financial-data-with-2024-10-11-21-39-11-utc.jpg" alt="Imagen noticia 3" />
               <div class="news-body">
-                <div class="news-meta">Strategy</div>
-                <h3 class="news-title">Competitive Strategy for Sustainable Growth</h3>
-                <p class="p-muted" style="font-size:14px;">
+                <div class="news-meta" data-i18n="news.card3.meta">Strategy</div>
+                <h3 class="news-title" data-i18n="news.card3.title">Competitive Strategy for Sustainable Growth</h3>
+                <p class="p-muted" style="font-size:14px;" data-i18n="news.card3.body">
                   How to align strategic priorities, capabilities, and KPIs for long-term value creation.
                 </p>
               </div>
@@ -645,26 +712,26 @@
           <img src="assets/img/Logo-NCA-sin-fondo.png" alt="NCA GROUP logo in footer" />
           <div>
             <strong>NCA GROUP</strong>
-            <div class="footer-tagline">Competitive Strategy, Sustainable Growth, and International Trade.</div>
+            <div class="footer-tagline" data-i18n="footer.tagline">Competitive Strategy, Sustainable Growth, and International Trade.</div>
           </div>
         </div>
 
         <div>
-          <strong>Office</strong><br/>
+          <strong data-i18n="footer.office">Office</strong><br/>
           3055 NW 126 Ave, Sunrise, FL 33323
         </div>
 
         <div>
-          <strong>Contact</strong><br/>
+          <strong data-i18n="footer.contact">Contact</strong><br/>
           +1 (954) 937 5266<br/>
           fnavia@naviaconsulting.us
         </div>
 
         <div>
-          <strong>Links</strong><br/>
-          <a href="services.html" class="text-decoration-none">Services</a> ·
-          <a href="blog.html" class="text-decoration-none">Blog</a> ·
-          <a href="contact.html" class="text-decoration-none">Contact</a>
+          <strong data-i18n="footer.links">Links</strong><br/>
+          <a href="services.html" class="text-decoration-none" data-i18n="footer.services">Services</a> &middot;
+          <a href="blog.html" class="text-decoration-none" data-i18n="footer.blog">Blog</a> &middot;
+          <a href="contact.html" class="text-decoration-none" data-i18n="footer.contactLink">Contact</a>
         </div>
       </footer>
 
@@ -675,6 +742,173 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+      const translations = {
+        en: {
+          pageTitle: "NCA GROUP | Home",
+          "nav.home": "Home",
+          "nav.expertise": "Expertise",
+          "nav.services": "Services",
+          "nav.team": "Team",
+          "nav.clients": "Clients",
+          "nav.blog": "Blog",
+          "nav.contact": "Contact",
+          "hero.brandSub": "Competitive Strategy &middot; Sustainable Growth &middot; International Trade",
+          "hero.kicker": "Your Partner for",
+          "hero.title": "Competitive<br/>Strategy,<br/>Sustainable Growth,<br/>and International Trade.",
+          "hero.sub": "NCA GROUP brings together consulting companies specializing in competitive strategy, sustainable growth, and international trade solutions for businesses, clusters, and governments. With a proven track record of success, we help clients navigate today's complex global landscape and achieve strategic objectives.",
+          "hero.ctaServices": "Our Services",
+          "hero.ctaAbout": "About Us",
+          "hero.ctaCompanies": "Our Companies",
+          "about.title": "About us",
+          "about.body": "We support organizations with strategy, market intelligence, and international expansion. Our work is focused on decision-ready insights and execution support for measurable outcomes.",
+          "about.card1.title": "Strategic Planning",
+          "about.card1.body": "Our strategic planning services are designed to empower your business with a clear roadmap to success.",
+          "about.card2.title": "Market Analysis",
+          "about.card2.body": "We provide deep insights into industry trends, customer behavior, and competitive landscapes.",
+          "about.card3.title": "Export Development",
+          "about.card3.body": "Our export development services help businesses expand into global markets with confidence.",
+          "about.news.kicker": "Latest News",
+          "about.news.body": "Stay updated with the latest news by reading our articles written by content writers in the industry.",
+          "about.news.button": "View all",
+          "companies.kicker": "Our Companies",
+          "companies.title": "Three specialized companies. One strategic partner.",
+          "companies.body": "NCA GROUP integrates complementary expertise across strategy, sustainability, and international trade.",
+          "companies.explore": "Explore services",
+          "companies.expand.sub": "International trade and business development.",
+          "companies.expand.body": "Export strategy, market entry planning, partner identification, and execution support for sustainable international growth.",
+          "companies.aims.sub": "Sustainability frameworks and reporting.",
+          "companies.aims.body": "Sustainability strategy, standards alignment, and reporting support to improve transparency, resilience, and stakeholder trust.",
+          "companies.navia.sub": "Competitive strategy and market intelligence.",
+          "companies.navia.body": "Decision-ready insights, strategic planning, and execution support for measurable outcomes and long-term value creation.",
+          "companies.viewServices": "View services",
+          "common.contact": "Contact",
+          "news.card1.meta": "Sustainability",
+          "news.card1.title": "AI and Sustainability: The Power of Integration",
+          "news.card1.body": "Three practices will help companies deploy a more carbon-conscious \"eco-AI\" approach to their technology and operations.",
+          "news.card2.meta": "International Trade",
+          "news.card2.title": "Global Market Entry: Key Execution Steps",
+          "news.card2.body": "A structured approach to reduce risk and accelerate early traction in new international markets.",
+          "news.card3.meta": "Strategy",
+          "news.card3.title": "Competitive Strategy for Sustainable Growth",
+          "news.card3.body": "How to align strategic priorities, capabilities, and KPIs for long-term value creation.",
+          "footer.tagline": "Competitive Strategy, Sustainable Growth, and International Trade.",
+          "footer.office": "Office",
+          "footer.contact": "Contact",
+          "footer.links": "Links",
+          "footer.services": "Services",
+          "footer.blog": "Blog",
+          "footer.contactLink": "Contact"
+        },
+        es: {
+          pageTitle: "NCA GROUP | Inicio",
+          "nav.home": "Inicio",
+          "nav.expertise": "Experticia",
+          "nav.services": "Servicios",
+          "nav.team": "Equipo",
+          "nav.clients": "Clientes",
+          "nav.blog": "Blog",
+          "nav.contact": "Contacto",
+          "hero.brandSub": "Estrategia Competitiva &middot; Crecimiento Sostenible &middot; Comercio Internacional",
+          "hero.kicker": "Su aliado para",
+          "hero.title": "Estrategia<br/>Competitiva,<br/>Crecimiento Sostenible<br/>y Comercio Internacional.",
+          "hero.sub": "NCA GROUP reúne empresas consultoras especializadas en estrategia competitiva, crecimiento sostenible y soluciones de comercio internacional para empresas, clústeres y gobiernos. Con una trayectoria comprobada de éxito, ayudamos a los clientes a navegar el complejo panorama global actual y alcanzar objetivos estratégicos.",
+          "hero.ctaServices": "Nuestros servicios",
+          "hero.ctaAbout": "Sobre nosotros",
+          "hero.ctaCompanies": "Nuestras empresas",
+          "about.title": "Sobre nosotros",
+          "about.body": "Apoyamos a las organizaciones con estrategia, inteligencia de mercados y expansión internacional. Nuestro trabajo se enfoca en información lista para la toma de decisiones y apoyo en la ejecución para lograr resultados medibles.",
+          "about.card1.title": "Planificación estratégica",
+          "about.card1.body": "Nuestros servicios de planificación estratégica están diseñados para impulsar su empresa con una hoja de ruta clara hacia el éxito.",
+          "about.card2.title": "Análisis de mercado",
+          "about.card2.body": "Proporcionamos información profunda sobre tendencias de la industria, comportamiento del cliente y panoramas competitivos.",
+          "about.card3.title": "Desarrollo exportador",
+          "about.card3.body": "Nuestros servicios de desarrollo exportador ayudan a las empresas a expandirse a los mercados globales con confianza.",
+          "about.news.kicker": "Últimas noticias",
+          "about.news.body": "Manténgase al día con las últimas noticias leyendo nuestros artículos escritos por expertos del sector.",
+          "about.news.button": "Ver todo",
+          "companies.kicker": "Nuestras empresas",
+          "companies.title": "Tres empresas especializadas. Un aliado estratégico.",
+          "companies.body": "NCA GROUP integra experiencia complementaria en estrategia, sostenibilidad y comercio internacional.",
+          "companies.explore": "Explorar servicios",
+          "companies.expand.sub": "Comercio internacional y desarrollo empresarial.",
+          "companies.expand.body": "Estrategia de exportación, planificación de entrada a mercados, identificación de socios y apoyo en la ejecución para un crecimiento internacional sostenible.",
+          "companies.aims.sub": "Marcos de sostenibilidad y reportes.",
+          "companies.aims.body": "Estrategia de sostenibilidad, alineación con estándares y apoyo en reportes para mejorar la transparencia, la resiliencia y la confianza de los grupos de interés.",
+          "companies.navia.sub": "Estrategia competitiva e inteligencia de mercados.",
+          "companies.navia.body": "Información lista para la toma de decisiones, planificación estratégica y apoyo en la ejecución para obtener resultados medibles y crear valor a largo plazo.",
+          "companies.viewServices": "Ver servicios",
+          "common.contact": "Contacto",
+          "news.card1.meta": "Sostenibilidad",
+          "news.card1.title": "IA y sostenibilidad: el poder de la integración",
+          "news.card1.body": "Tres prácticas ayudarán a las empresas a desplegar un enfoque de \"eco-AI\" más consciente del carbono en su tecnología y operaciones.",
+          "news.card2.meta": "Comercio internacional",
+          "news.card2.title": "Entrada a mercados globales: pasos clave de ejecución",
+          "news.card2.body": "Un enfoque estructurado para reducir riesgos y acelerar la tracción inicial en nuevos mercados internacionales.",
+          "news.card3.meta": "Estrategia",
+          "news.card3.title": "Estrategia competitiva para un crecimiento sostenible",
+          "news.card3.body": "Cómo alinear prioridades estratégicas, capacidades y KPIs para crear valor a largo plazo.",
+          "footer.tagline": "Estrategia competitiva, crecimiento sostenible y comercio internacional.",
+          "footer.office": "Oficina",
+          "footer.contact": "Contacto",
+          "footer.links": "Enlaces",
+          "footer.services": "Servicios",
+          "footer.blog": "Blog",
+          "footer.contactLink": "Contacto"
+        }
+      };
+
+      const languageButtons = document.querySelectorAll("[data-lang-toggle]");
+
+      function applyLanguage(lang){
+        const dictionary = translations[lang] || translations.en;
+
+        document.documentElement.lang = lang;
+        document.title = dictionary.pageTitle;
+
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.dataset.i18n;
+          if (dictionary[key]) {
+            element.textContent = dictionary[key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+          const key = element.dataset.i18nHtml;
+          if (dictionary[key]) {
+            element.innerHTML = dictionary[key];
+          }
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.langToggle === lang;
+          button.classList.toggle("active", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        try{
+          localStorage.setItem("nca-group-home-lang", lang);
+        }catch (error){
+          // Ignore storage restrictions.
+        }
+      }
+
+      const savedLanguage = (() => {
+        try{
+          const storedLanguage = localStorage.getItem("nca-group-home-lang");
+          return translations[storedLanguage] ? storedLanguage : "en";
+        }catch (error){
+          return "en";
+        }
+      })();
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.langToggle);
+        });
+      });
+
+      applyLanguage(savedLanguage);
+
       // Animaciones suaves (sin exceso)
       AOS.init({
         duration: 650,
